@@ -1,0 +1,1036 @@
+comm_type,comm_group,comm_group_size,msg_size,stage,dst,src,additional,_elapsed_time,algbw,busbw,count
+CommType.all_reduce,CommGroup.dp_group,4,8,init.model_setup,None,None,,906.5430908203125,0.0,0.0,1
+CommType.all_reduce,CommGroup.dp_group,4,8,init.model_setup,None,None,,0.19865599274635315,0.0,0.0,1
+CommType.all_reduce,CommGroup.dp_group,4,8,init.model_setup,None,None,,0.11980800330638885,0.0,0.0,1
+CommType.all_reduce,CommGroup.dp_group,4,8,init.model_setup,None,None,,0.11878400295972824,0.0,0.0,1
+CommType.all_gather,CommGroup.dp_group,4,32,init.model_setup,None,None,,0.1525759994983673,0.0,0.0,1
+CommType.broadcast,CommGroup.tp_group,2,24,init.model_setup,None,0,,1048.7982177734375,0.0,0.0,1
+CommType.all_gather,CommGroup.dp_group,4,64,init.model_setup,None,None,,29.591552734375,0.0,0.0,1
+CommType.epoch_end,None,None,0,,None,None,,10029.667377471924,0.0,0.0,1
+CommType.broadcast,CommGroup.tp_group,2,40,forward_step,None,0,,0.13926400244235992,0.0,0.0,1
+CommType.broadcast,CommGroup.tp_group,2,16448,forward_step,None,0,,0.12185599654912949,0.13,0.13,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronEmbedding,None,None,,0.2396160066127777,65.21,65.21,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1919360160827637,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23552000522613525,66.34,66.34,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.831936001777649,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2672640085220337,58.46,58.46,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1909120082855225,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1724799871444702,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.29388800263404846,53.17,53.17,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.2001279592514038,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2303999960422516,67.82,67.82,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2457599937915802,63.58,63.58,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1806720495224,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22220799326896667,70.32,70.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.793023943901062,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2908160090446472,53.73,53.73,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1929600238800049,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22835199534893036,68.43,68.43,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.793023943901062,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7356799840927124,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2836480140686035,55.09,55.09,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21606400609016418,72.32,72.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7848320007324219,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1960320472717285,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23552000522613525,66.34,66.34,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23449599742889404,66.63,66.63,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7694720029830933,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7838079929351807,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2539519965648651,61.53,61.53,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7889280319213867,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25804799795150757,60.55,60.55,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21503999829292297,72.66,72.66,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25088000297546387,62.28,62.28,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2242559939622879,69.67,69.67,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7868800163269043,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25702399015426636,60.79,60.79,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23654399812221527,66.06,66.06,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2181120067834854,71.64,71.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24166400730609894,64.66,64.66,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22630399465560913,69.04,69.04,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7879040241241455,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.26316800713539124,59.37,59.37,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1950080394744873,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2467840015888214,63.31,63.31,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21401600539684296,73.01,73.01,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1663360595703125,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22732800245285034,68.73,68.73,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24166400730609894,64.66,64.66,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1847679615020752,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22220799326896667,70.32,70.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7541120052337646,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2396160066127777,65.21,65.21,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.793023943901062,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.289792001247406,53.92,53.92,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.193984031677246,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1919360160827637,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21913599967956543,71.3,71.3,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.760256052017212,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2662400007247925,58.69,58.69,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.159168004989624,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21503999829292297,72.66,72.66,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7920000553131104,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24268800020217896,64.38,64.38,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1929600238800049,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2181120067834854,71.64,71.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7694720029830933,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24473600089550018,63.84,63.84,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22015999257564545,70.97,70.97,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2314240038394928,67.52,67.52,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.26316800713539124,59.37,59.37,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1919360160827637,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.18886399269104,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21606400609016418,72.32,72.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.26419198513031006,59.14,59.14,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.193984031677246,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22835199534893036,68.43,68.43,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.26214399933815,59.6,59.6,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2314240038394928,67.52,67.52,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1816960573196411,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2385919988155365,65.49,65.49,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7868800163269043,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2467840015888214,63.31,63.31,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21196800470352173,73.71,73.71,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2457599937915802,63.58,63.58,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21401600539684296,73.01,73.01,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24985599517822266,62.54,62.54,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1970560550689697,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21401600539684296,73.01,73.01,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2662400007247925,58.69,58.69,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.10444799810647964,0.07,0.07,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.1013759970664978,0.08,0.08,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.10239999741315842,0.07,0.07,1
+CommType.all_reduce,CommGroup.dp_group,4,4,forward_step.average_losses_across_data_parallel_group,None,None,,0.10342399775981903,0.0,0.0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7551360130310059,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.146880030632019,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1704319715499878,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7520639896392822,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7868800163269043,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1519999504089355,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7694720029830933,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1479040384292603,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7428480386734009,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1448320150375366,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7469439506530762,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1950080394744873,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1950080394744873,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7551360130310059,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.193984031677246,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7592320442199707,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1571199893951416,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1499520540237427,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.763327956199646,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7889280319213867,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7469439506530762,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.146880030632019,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1816960573196411,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.789952039718628,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1960320472717285,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1960320472717285,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7551360130310059,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7500159740447998,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1509759426116943,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.773568034172058,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1909120082855225,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1724799871444702,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7663999795913696,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.broadcast,CommGroup.tp_group,2,40,forward_step,None,0,,0.1454080045223236,0.0,0.0,1
+CommType.broadcast,CommGroup.tp_group,2,16448,forward_step,None,0,,0.11161600053310394,0.14,0.14,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronEmbedding,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21401600539684296,73.01,73.01,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25600001215934753,61.04,61.04,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2519040107727051,62.03,62.03,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22015999257564545,70.97,70.97,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24166400730609894,64.66,64.66,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22630399465560913,69.04,69.04,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7643519639968872,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21196800470352173,73.71,73.71,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1489280462265015,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2682879865169525,58.24,58.24,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1878399848937988,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7571840286254883,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22220799326896667,70.32,70.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23756800591945648,65.77,65.77,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23756800591945648,65.77,65.77,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2242559939622879,69.67,69.67,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7879040241241455,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2529279887676239,61.78,61.78,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21401600539684296,73.01,73.01,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7827839851379395,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2396160066127777,65.21,65.21,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22015999257564545,70.97,70.97,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1847679615020752,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2396160066127777,65.21,65.21,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2242559939622879,69.67,69.67,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21094399690628052,74.07,74.07,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2181120067834854,71.64,71.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2467840015888214,63.31,63.31,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22220799326896667,70.32,70.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21196800470352173,73.71,73.71,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.171455979347229,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2181120067834854,71.64,71.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7448960542678833,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23756800591945648,65.77,65.77,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2529279887676239,61.78,61.78,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2396160066127777,65.21,65.21,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.171455979347229,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7920000553131104,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25088000297546387,62.28,62.28,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7868800163269043,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22118400037288666,70.64,70.64,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2519040107727051,62.03,62.03,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1847679615020752,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23449599742889404,66.63,66.63,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.772544026374817,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21196800470352173,73.71,73.71,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7838079929351807,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2672640085220337,58.46,58.46,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2529279887676239,61.78,61.78,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2252800017595291,69.36,69.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24883200228214264,62.79,62.79,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22015999257564545,70.97,70.97,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1806720495224,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1847679615020752,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23449599742889404,66.63,66.63,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.25702399015426636,60.79,60.79,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1560959815979004,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22015999257564545,70.97,70.97,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.26214399933815,59.6,59.6,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22835199534893036,68.43,68.43,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22220799326896667,70.32,70.32,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21913599967956543,71.3,71.3,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2385919988155365,65.49,65.49,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1530239582061768,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24371199309825897,64.11,64.11,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.772544026374817,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2385919988155365,65.49,65.49,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22937600314617157,68.12,68.12,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7766400575637817,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2314240038394928,67.52,67.52,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2314240038394928,67.52,67.52,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.24063999950885773,64.93,64.93,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7879040241241455,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2744320034980774,56.94,56.94,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1847679615020752,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22323200106620789,69.99,69.99,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.23347200453281403,66.92,66.92,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.1878399848937988,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1857919692993164,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.21299199759960175,73.36,73.36,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2385919988155365,65.49,65.49,1
+CommType.computation,None,None,((2048 1 4096) (4096 6144)),forward.MegatronColumnLinear.attention_column,None,None,,1.18886399269104,0,0,1
+CommType.computation,None,None,((2048 1 2048) (2048 4096)),forward.MegatronRowLinear.attention_row,None,None,,1.1868159770965576,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.22732800245285034,68.73,68.73,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),forward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),forward.MegatronRowLinear.mlp_row,None,None,,1.780735969543457,0,0,1
+CommType.all_reduce,CommGroup.tp_group,2,16777216,forward.MegatronRowLinear,None,None,,0.2314240038394928,67.52,67.52,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.11980800330638885,0.06,0.06,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.10444799810647964,0.07,0.07,1
+CommType.all_reduce,CommGroup.tp_group,2,8192,forward_step._VocabParallelCrossEntropy,None,None,,0.09830400347709656,0.08,0.08,1
+CommType.all_reduce,CommGroup.dp_group,4,4,forward_step.average_losses_across_data_parallel_group,None,None,,0.1013759970664978,0.0,0.0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1950080394744873,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7612799406051636,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1560959815979004,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1776000261306763,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7448960542678833,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1519999504089355,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1868159770965576,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.751039981842041,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1960320472717285,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1898880004882812,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.768447995185852,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7827839851379395,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7500159740447998,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1571199893951416,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.8391040563583374,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.2267520427703857,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1806720495224,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.2021759748458862,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7551360130310059,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1581439971923828,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1950080394744873,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7674239873886108,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1857919692993164,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7520639896392822,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1663360595703125,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7776639461517334,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7715200185775757,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7868800163269043,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.763327956199646,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1653120517730713,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1929600238800049,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7766400575637817,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.141759991645813,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.780735969543457,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1929600238800049,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7756160497665405,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1622400283813477,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7848320007324219,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1816960573196411,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7592320442199707,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7879040241241455,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7377279996871948,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7776639461517334,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1653120517730713,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1919360160827637,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7838079929351807,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7797119617462158,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7817599773406982,0,0,1
+CommType.computation,None,None,((2048 1 6144) (6144 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1827199459075928,0,0,1
+CommType.computation,None,None,((6144 2048) (2048 4096)),backward.MegatronColumnLinear.attention_column,None,None,,1.1847679615020752,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 2048)),backward.MegatronRowLinearattention_row,None,None,,1.183743953704834,0,0,1
+CommType.computation,None,None,((2048 1 5440) (5440 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((5440 2048) (2048 4096)),backward.MegatronColumnLinear.mlp_column,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((2048 1 4096) (4096 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.7786879539489746,0,0,1
+CommType.computation,None,None,((4096 2048) (2048 5440)),backward.MegatronRowLinearmlp_row,None,None,,1.785856008529663,0,0,1
+CommType.reduce_scatter,CommGroup.dp_group,4,13350141952,step,None,None,,49.484798431396484,251.25,188.44,1
+CommType.all_gather,CommGroup.dp_group,4,6675070976,step,None,None,,24.550399780273438,253.22,189.91,1
+CommType.all_reduce,CommGroup.tp_group,2,0,step._allreduce_layernorm_grads,None,None,,0.1228799968957901,0.0,0.0,1
+CommType.all_reduce,CommGroup.tp_group,2,4,step.check_for_nan,None,None,,0.11878400295972824,0.0,0.0,1
+CommType.epoch_end,None,None,0,,None,None,,1474.4408130645752,0.0,0.0,1
