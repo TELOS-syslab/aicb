@@ -1,4 +1,4 @@
-# Access AICB
+# Access AICB 访问 AICB
 You can access the full suite of **SimAI** tools on **GitHub** via  [**SimAI@github**](https://github.com/aliyun/SimAI)
 
 You can access AICB on **GitHub** via  [**AICB@github**](https://github.com/aliyun/aicb)
@@ -6,6 +6,15 @@ You can access AICB on **GitHub** via  [**AICB@github**](https://github.com/aliy
 You can also access AICB on **Gitee** via [**AICB@gitee**](https://gitee.com/ali-ais-hpn/aicb)
 
 Welcome to join the SimAI community chat groups, with the DingTalk group on the left and the WeChat group on the right.
+
+您可以通过以下链接访问 **SimAI** 工具的完整套件：
+- [**SimAI@github**](https://github.com/aliyun/SimAI)
+
+您可以通过以下链接访问 AICB：
+- [**AICB@github**](https://github.com/aliyun/aicb)
+- [**AICB@gitee**](https://gitee.com/ali-ais-hpn/aicb)
+
+欢迎加入 SimAI 社区聊天群，左侧为钉钉群，右侧为微信群。
 
 <div style="display: flex; justify-content: flex-start; align-items: center; gap: 20px; margin-left: 20px;">
     <img src="./images/simai_dingtalk.jpg" alt="SimAI DingTalk" style="width: 300px; height: auto;">
@@ -17,12 +26,20 @@ Welcome to join the SimAI community chat groups, with the DingTalk group on the 
 # Lastest News
 [2024/9] AICB Version 1.1 Released.
 This version brings the following changes:
+最新动态
+[2024/9] AICB 版本 1.1 发布。
+此版本包含以下更新：
 
 Features
 1. Added result visualization functionality, which supports displaying results after physical cluster runs and also supports visualization of generated workload files. For details, see the Readme.
 2. Optimized the method for dividing communication groups, enhancing scalability.
 3. Added support for the AIOB computation pattern for moe group_gemm.
 Made some optimizations to the run_in_cluster script.
+功能新增
+1. 增加了结果可视化功能，支持在物理集群运行后显示结果，并支持生成的工作负载文件的可视化。详情请参阅 Readme。
+2. 优化了通信组划分方法，增强了可扩展性。
+3. 增加了对 MOE `group_gemm` 的 AIOB 计算模式的支持。
+对 `run_in_cluster` 脚本进行了一些优化。
 
 Bug Fixes
 
@@ -32,6 +49,14 @@ Bug Fixes
 4. Fixed potential hangs in the `run_suite` script.
 5. Fixed errors in generating simAI workload description files when using `tp=1`, `ep=1`.
 6. Fixed some msg size errors related to moe.
+
+Bug 修复
+1. 修复了日志中部分 BusBw 计算错误的问题。
+2. 修复了多机运行时 AIOB 异常计算时间的问题。
+3. 修复了启用 `computation_enable` 时 comm_log 统计异常的问题。
+4. 修复了 `run_suite` 脚本潜在的挂起问题。
+5. 修复了使用 `tp=1` 和 `ep=1` 时生成 simAI 工作负载描述文件的错误。
+6. 修复了与 MOE 相关的部分消息大小错误。
 
 # Table of Contents
 
@@ -62,15 +87,70 @@ Bug Fixes
 - [Tutorial](#tutorial)
 - [Projects using AICB](#projects-using-aicb)
 
+目录
+
+- [访问 AICB](#访问-aicb)
+- [最新动态](#最新动态)
+- [目录](#目录)
+- [AICB 概述](#aicb-概述)
+  - [简介](#简介)
+  - [AICB 中的基准测试套件](#aicb-中的基准测试套件)
+- [环境搭建](#环境搭建)
+- [使用方法](#使用方法)
+  - [在物理 GPU 集群上运行](#在物理-gpu-集群上运行)
+    - [需要设置的基本参数](#需要设置的基本参数)
+    - [运行整个基准测试套件](#运行整个基准测试套件)
+    - [运行 Megatron 的工作负载](#运行-megatron-的工作负载)
+    - [运行 MOE 的工作负载](#运行-moe-的工作负载)
+    - [运行 DeepSpeed 的工作负载](#运行-deepspeed-的工作负载)
+    - [嵌入工作负载中的计算模式](#嵌入工作负载中的计算模式)
+  - [为仿真（SimAI）生成工作负载](#为仿真-simai-生成工作负载)
+    - [为整个基准测试套件生成工作负载描述文件](#为整个基准测试套件生成工作负载描述文件)
+    - [为 Megatron 生成工作负载描述文件](#为-megatron-生成工作负载描述文件)
+    - [为 MOE 生成工作负载描述文件](#为-moe-生成工作负载描述文件)
+    - [为 DeepSpeed 生成工作负载描述文件](#为-deepspeed-生成工作负载描述文件)
+  - [使用自定义参数运行 AICB](#使用自定义参数运行-aicb)
+    - [在物理 GPU 集群上运行自定义工作负载](#在物理-gpu-集群上运行自定义工作负载)
+    - [生成自定义工作负载描述文件](#生成自定义工作负载描述文件)
+  - [结果可视化](#结果可视化)
+- [教程](#教程)
+- [使用 AICB 的项目](#使用-aicb-的项目)
+
+
 # AICB Overview
 ## Introduction
-AICB (Artificial Intelligence Communication Benchmark), is a novel benchmark suite for evaluating the communication system of a realistic and emulated GPU cluster from the pespectives of the emerging training and inference applications. Different from exisiting network benchmarks, AICB is designed to produce the communication workloads with precise patterns that are aligned to real-world applications. Taking the Large Language Model (LLM) training as an example, the workloads vary with the complicated combinations of models, parallel frameworks, and parameters of the models, parallel frameworks, and the collective communication libraries. In general, the scenarios suitable for using AICB include but not limited to 1) benchmarking and tuning of the communication system of a GPU cluster, 2) investigating and analyzing the communication patterns of specific application settings, 3) tools, e.g. simulators, that need workloads which are well described.
+AICB (Artificial Intelligence Communication Benchmark), is a novel benchmark suite for evaluating the communication system of a realistic and emulated GPU cluster from the pespectives of the emerging training and inference applications. 
+Different from exisiting network benchmarks, AICB is designed to produce the communication workloads with precise patterns that are aligned to real-world applications. 
+Taking the Large Language Model (LLM) training as an example, the workloads vary with the complicated combinations of models, parallel frameworks, and parameters of the models, parallel frameworks, and the collective communication libraries. 
+In general, the scenarios suitable for using AICB include but not limited to 
+1) benchmarking and tuning of the communication system of a GPU cluster, 
+2) investigating and analyzing the communication patterns of specific application settings, 
+3) tools, e.g. simulators, that need workloads which are well described.
+AICB 概述
+简介
+AICB（Artificial Intelligence Communication Benchmark）是一个新颖的基准测试套件，用于从新兴的训练和推理应用的角度评估真实和模拟 GPU 集群的通信系统。
+与现有的网络基准测试不同，AICB 设计用于生成与实际应用对齐的精确通信工作负载模式。
+以大型语言模型（LLM）训练为例，工作负载会因模型、并行框架和集体通信库的复杂组合而变化。
+总的来说，适合使用 AICB 的场景包括但不限于：
+1）GPU 集群通信系统的基准测试和调优；
+2）特定应用场景通信模式的研究和分析；
+3）需要良好描述工作负载的工具（如模拟器）。
 
-## The benchmark suite in AICB 
-There are a lot of parameters that influence the communication and computation patterns, which are (1) model parameters (e.g., hidden_size, num_layers, seq_len, etc.) and (2) framework parameters (e.g., world size, parallelization strategies (TP, PP, DP, SP), zero level, reduce_bucket_size/allgather_bucket_size, etc.).
+## The benchmark suite in AICB  AICB 中的基准测试套件
+There are a lot of parameters that influence the communication and computation patterns, which are 
+(1) model parameters (e.g., hidden_size, num_layers, seq_len, etc.) 
+and (2) framework parameters (e.g., world size, parallelization strategies (TP, PP, DP, SP), zero level, reduce_bucket_size/allgather_bucket_size, etc.).
 For the sake of generality, we cover those typical settings using a smallest set of benchmarks rather than traversing all the combinations. To this end, we propose the benchmark suite as listed in the following table.
+许多参数会影响通信和计算模式，包括：
+1）模型参数（如 hidden_size、num_layers、seq_len 等）；
+2）框架参数（如 world size、并行策略（TP、PP、DP、SP）、zero level、reduce_bucket_size/allgather_bucket_size 等）。
+为了通用性，我们通过最小的基准测试集覆盖这些典型设置，而不是遍历所有组合。以下是基准测试套件的列表。
+
 **Users can directly run all the selected workloads selected in AICB, or run part of the workloads, or even generate their own workloads.**
 For more detailed information, please refer to [AICB_workload spec v1.1](workload/Workload_spec_v1.1.csv).
+用户可以直接运行 AICB 中选定的所有工作负载，也可以选择运行部分工作负载，甚至生成自己的工作负载。
+更多详细信息，请参考 [AICB_workload spec v1.1](workload/Workload_spec_v1.1.csv)。
+
 | id  | Name          | Sequence_length | Framework | TP  | DP                    | PP  | SP     | Expert parallel number | Expert num | Zero_level |
 |:---:|:-------------:|:---------------:|:---------:|:---:|:---------------------:|:---:|:------:|:----------------------:|:----------:|:----------:|
 |  1  | LLaMA_7B      |      2048       | Megatron  |  1  |  world_size/(PP*TP)   |  1  |   -    |           -            |     -      |     -      |
@@ -85,13 +165,32 @@ For more detailed information, please refer to [AICB_workload spec v1.1](workloa
 | 10  | Mistral_8*7B  |      2048       | Megatron  |  2  |  world_size/(PP*TP)   |  1  | enable |           8            |     8      |     -      |
 
 
-# Setup
+| id  | 名称          | 序列长度 | 框架     | TP  | DP                    | PP  | SP     | 专家并行数 | 专家数 | Zero 级别 |
+|:---:|:-------------:|:-------:|:-------:|:---:|:---------------------:|:---:|:------:|:--------:|:----:|:--------:|
+|  1  | LLaMA_7B      |  2048   | Megatron |  1  |  world_size/(PP*TP)   |  1  |   -    |    -     |  -   |    -     |
+|  2  | GPT_13B       |  2048   | Megatron |  2  |  world_size/(PP*TP)   |  1  | enable |    -     |  -   |    -     |
+|  3  | GPT_22B       |  2048   | Megatron |  4  |  world_size/(PP*TP)   |  1  |   -    |    -     |  -   |    -     |
+|  4  | LLaMA_65B     |  4096   | Megatron |  8  |  world_size/(PP*TP)   |  2  | enable |    -     |  -   |    -     |
+|  5  | GPT_175B      |  2048   | Megatron |  8  |  world_size/(PP*TP)   |  8  | enable |    -     |  -   |    -     |
+|  6  | GPT_175B      |  2048   | Megatron |  8  |  world_size/(PP*TP)   |  8  | disable|    -     |  -   |    -     |
+|  7  | Llama3_405B   |  8192   | Megatron |  8  |  world_size/(PP*TP)   |  16 | enable |    -     |  -   |    -     |
+|  8  | LLaMA_7B      |  4096   | Deepspeed|  1  |      world_size       |  1  |   -    |    -     |  -   |    2     |
+|  9  | LLaMA_65B     |  4096   | Deepspeed|  1  |      world_size       |  1  |   -    |    -     |  -   |    3     |
+| 10  | Mistral_8*7B  |  2048   | Megatron |  2  |  world_size/(PP*TP)   |  1  | enable |    8     |  8   |    -     |
+
+
+# Setup 环境搭建
 You can follow the instrucitons below to quickly set up the environtments and run AICB.
-1. Installation from source code
+您可以按照以下步骤快速搭建环境并运行 AICB。
+
+1. Installation from source code 从源代码安装
 
     a. To initiate actual communication tasks, ensure that the runtime environment has all necessary dependencies, such as CUDA and [PyTorch](https://pytorch.org), already installed. For specific usage examples, see [Physical Execution](#physical-execution)
+    为了启动实际通信任务，确保运行时环境已安装所有必要的依赖项，例如 CUDA 和 [PyTorch](https://pytorch.org)。有关具体用法示例，请参见 [物理执行](#物理执行)。
 
     b. To generate workload traffic patterns for large model parallel framework training, you can use a CPU-only environment. For specific usage examples, see [Generate Workloads ](#generate-workloads )
+    为了生成大模型并行框架训练的工作负载流量模式，可以使用仅 CPU 的环境。有关具体用法示例，请参见 [生成工作负载](#生成工作负载)。
+
 
 2. Installation from deb package (for Ubuntu systems)
 
