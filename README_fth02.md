@@ -192,9 +192,11 @@ You can follow the instrucitons below to quickly set up the environtments and ru
     为了生成大模型并行框架训练的工作负载流量模式，可以使用仅 CPU 的环境。有关具体用法示例，请参见 [生成工作负载](#生成工作负载)。
 
 
-2. Installation from deb package (for Ubuntu systems)
+2. Installation from deb package (for Ubuntu systems) 从 deb 包安装（适用于 Ubuntu 系统）
 
     Currently, you can install the deb package  on an NV-built NGC container [NGC's PyTorch container](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch) to start running AICB.
+    当前，您可以在 NV 构建的 NGC 容器 [NGC's PyTorch 容器](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch) 上安装 deb 包以开始运行 AICB。
+
     ```bash
     docker pull nvcr.io/nvidia/pytorch:xx.xx-py3
     docker run --gpus all -it --rm -v /path/to/AICBench:/workspace/AICBench nvcr.io/nvidia/pytorch:xx.xx-py3
@@ -202,9 +204,10 @@ You can follow the instrucitons below to quickly set up the environtments and ru
     sh megatron_workload_with_aiob.sh -m 7
     ```
 
-3. Composing a Docker image from Dockfile
+3. Composing a Docker image from Dockfile 使用 Dockerfile 构建 Docker 镜像
 
     You can launch an instance of the Docker container  with Dockerfile for quick start:
+    您可以通过 Dockerfile 快速启动 Docker 容器实例：
 
     ```bash
     docker build -t image:latest .
@@ -216,6 +219,11 @@ After installation, we provide three main usage scenarios for AICB:
 1. [Running on physical GPU clusters](#running-on-physical-gpu-clusters) 
 2. [Generating workload descrption files for simulation](#generate-workloads-for-simulation-simai) 
 3. [Customized parameters](#customized-parameters).
+使用方法
+安装完成后，我们为 AICB 提供了三种主要使用场景：
+1. [在物理 GPU 集群上运行](#在物理-gpu-集群上运行)
+2. [为仿真生成工作负载描述文件](#为仿真-simai-生成工作负载)
+3. [使用自定义参数](#使用自定义参数)。
 
 There is a tutorial including all the details, please refer to [the tutorial](training/tutorial.md).
 ## Running on physical GPU clusters
