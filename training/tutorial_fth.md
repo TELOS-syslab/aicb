@@ -219,6 +219,27 @@ sh ./scripts/megatron_workload_with_aiob.sh -m 7 \
 --use_flash_attn  --aiob_enable \
 --comp_filepath workload/aiob_inputs/Example.txt
 ```
+
+sudo docker exec -it fth_simai /bin/bash
+
+
+```bash fth
+sh ./scripts/megatron_workload_with_aiob.sh -m 7 \
+--world_size 4096 --tensor_model_parallel_size 4 --pipeline_model_parallel 1 \
+--frame Megatron --global_batch 8192 \
+--micro_batch 1 --seq_length 4096 --swiglu \
+--use_flash_attn  --aiob_enable \
+--comp_filepath workload/aiob_inputs/Example.txt
+```
+
+```bash fth
+sh ./scripts/megatron_workload_with_aiob.sh -m 7 \
+--world_size 4096 --tensor_model_parallel_size 4 --pipeline_model_parallel 1 \
+--frame Megatron --global_batch 8192 \
+--micro_batch 1 --seq_length 4096 --swiglu \
+--use_flash_attn  --aiob_enable 
+```
+
 ### Workload
 The generated Workload result is saved in:`results/workload/gpt_7B-world_size4096-tp4-pp1-gbs8192-mbs1-seq4096-flash_attn-True.txt`
 工作负载

@@ -377,6 +377,7 @@ class MegatronMlp(MockedModel):  # 定义一个MegatronMlp类，继承自MockedM
         workloads.extend(self.dense_4h_to_h.backward())  # 调用dense_4h_to_h的反向传播，将结果添加到工作负载中
         assert all([isinstance(workload, LogItem) for workload in workloads.workload])  # 检查工作负载中的每个条目是否都是LogItem实例
         return workloads  # 返回工作负载
+    
 class GroupedMLP(MockedModel):  # 定义一个GroupedMLP类，继承自MockedModel，用于表示一个分组MLP模型
     def __init__(  # 初始化方法，接收多个参数来配置GroupedMLP模型
         self,
@@ -629,61 +630,67 @@ class MegatronEmbedding(MockedModel):  # 定义一个 MegatronEmbedding 类，�
         return workloads  # 返回工作负载
 
 
-class MegatronModel(MockedModel):  # 定义一个 MegatronModel 类，继承自 MockedModel
-    def __init__(self, config):  # 初始化方法，接收一个配置对象
-        self.embedding = MegatronEmbedding(  # 创建一个 MegatronEmbedding 对象
+class MegatronModel(MockedModel):
+    def __init__(self, config):
+        # 初始化嵌入层，传入词汇表大小、隐藏层大小、张量并行大小、序列长度和微批次大小
+        self.embedding = MegatronEmbedding(
             config.padded_vocab_size,
             config.hidden_size,
             config.tensor_model_parallel_size,
             config.seq_length,
             config.micro_batch,
         )
-        self.layers = [  # 创建一个层列表，每一层是一个 MegatronTransformorLayer 对象
+        # 初始化Transformer层列表，每一层包含隐藏层大小、FFN隐藏层大小、张量并行大小等参数
+        self.layers = [
             MegatronTransformorLayer(
-                config.hidden_size,
-                config.ffn_hidden_size,
-                config.tensor_model_parallel_size,
-                config.seq_length,
-                config.micro_batch,
-                config.num_attention_heads,
-                i,
-                config.expert_model_parallel_size,
-                config.moe_router_topk,
-                config.num_experts,
-                config.moe_grouped_gemm,
-                config.enable_sequence_parallel,
-                config.computation_enable,
-                config.add_bias_linear,
-                config.moe_enable,
+                config.hidden_size,  # 隐藏层大小
+                config.ffn_hidden_size,  # FFN隐藏层大小
+                config.tensor_model_parallel_size,  # 张量并行大小
+                config.seq_length,  # 序列长度
+                config.micro_batch,  # 微批次大小
+                config.num_attention_heads,  # 注意力头数量
+                i,  # 当前层索引
+                config.expert_model_parallel_size,  # 专家模型并行大小
+                config.moe_router_topk,  # MoE路由TopK值
+                config.num_experts,  # 专家数量
+                config.moe_grouped_gemm,  # 是否启用MoE分组GEMM
+                config.enable_sequence_parallel,  # 是否启用序列并行
+                config.computation_enable,  # 是否启用计算
+                config.add_bias_linear,  # 是否添加偏置线性
+                config.moe_enable,  # 是否启用MoE
             )
-            for i in range(config.num_layers)  # 根据层数配置，创建多个 MegatronTransformorLayer 对象
+            for i in range(config.num_layers)  # 遍历层数，创建每一层
         ]
-        self.final_norm = MegatronColumnLinear(  # 创建一个 MegatronColumnLinear 对象，表示模型的最后一层
-            config.hidden_size,
-            config.padded_vocab_size,
-            config.tensor_model_parallel_size,
-            config.seq_length,
-            config.micro_batch,
-            1,
-            "final",
-            sequence_parallel_enabled=config.enable_sequence_parallel,
-            computation_enable=config.computation_enable,
-            add_bias_linear=config.add_bias_linear,
+        # 初始化最终归一化层，传入隐藏层大小、词汇表大小、张量并行大小等参数
+        self.final_norm = MegatronColumnLinear(
+            config.hidden_size,  # 隐藏层大小
+            config.padded_vocab_size,  # 填充后的词汇表大小
+            config.tensor_model_parallel_size,  # 张量并行大小
+            config.seq_length,  # 序列长度
+            config.micro_batch,  # 微批次大小
+            1,  # 层类型标识为"final"
+            "final",  # 层名称为"final"
+            sequence_parallel_enabled=config.enable_sequence_parallel,  # 是否启用序列并行
+            computation_enable=config.computation_enable,  # 是否启用计算
+            add_bias_linear=config.add_bias_linear,  # 是否添加偏置线性
         )
 
-    def forward(self):  # 前向传播方法
-        workloads = Workload()  # 创建一个空的 Workload 对象
-        workloads.extend(self.embedding.forward())  # 添加嵌入层的前向传播工作负载
-        for layer in self.layers:  # 对每一层，调用前向传播并添加工作负载
-            workloads.extend(layer.forward())
-        assert all([isinstance(workload, LogItem) for workload in workloads.workload])  # 确保每个工作负载是LogItem类型
+    def forward(self):
+        workloads = Workload()  # 初始化工作负载对象
+        workloads.extend(self.embedding.forward())  # 将嵌入层的前向传播结果添加到工作负载中
+        for layer in self.layers:  # 遍历每一层
+            workloads.extend(layer.forward())  # 将每一层的前向传播结果添加到工作负载中
+        # 确保所有工作负载项均为LogItem类型
+        assert all([isinstance(workload, LogItem) for workload in workloads.workload])
         return workloads  # 返回工作负载
 
-    def backward(self):  # 反向传播方法
-        workloads = Workload()  # 创建一个空的 Workload 对象
-        for layer in self.layers[::-1]:  # 从最后一层开始，逆序调用每一层的反向传播
-            workloads.extend(layer.backward())
-        workloads.extend(self.embedding.backward())  # 添加嵌入层的反向传播工作负载
-        assert all([isinstance(workload, LogItem) for workload in workloads.workload])  # 确保每个工作负载是LogItem类型
+    def backward(self):
+        workloads = Workload()  # 初始化工作负载对象
+        for layer in self.layers[::-1]:  # 按逆序遍历每一层（从最后一层开始）
+            workloads.extend(layer.backward())  # 将每一层的反向传播结果添加到工作负载中
+        workloads.extend(self.embedding.backward())  # 将嵌入层的反向传播结果添加到工作负载中
+        # 确保所有工作负载项均为LogItem类型
+        assert all([isinstance(workload, LogItem) for workload in workloads.workload])
         return workloads  # 返回工作负载
+
 
