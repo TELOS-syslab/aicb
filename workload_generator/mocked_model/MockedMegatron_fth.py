@@ -513,7 +513,7 @@ class GroupedMLP(MockedModel):  # 定义一个GroupedMLP类，继承自MockedMod
 class SequentialMLP(MockedModel):  # 定义一个名为 SequentialMLP 的类，继承自 MockedModel 类
     def __init__(self):  # 初始化方法
         print("Not implement yet!")  # 打印未实现的消息
-        pass  # 占位符，当前没有实现任何逻辑
+        pass  # 占位符，当前没有实现任何逻辑 
 
 
 class MegatronTransformorLayer(MockedModel):  # 定义一个名为 MegatronTransformorLayer 的类，继承自 MockedModel 类
