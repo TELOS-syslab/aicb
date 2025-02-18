@@ -1015,6 +1015,7 @@ if __name__ == "__main__":  # 如果脚本作为主程序运行
     print(sum(p.numel() for p in params))  # 打印模型参数的总数
     if args.aiob_enable:  # 如果启用了 AI-O部门
         params = model.parameters()  # 再次获取模型的参数
+        # p.numel() 是 PyTorch 中的一个方法，用于返回张量中元素的总数。
         args.model_param = sum(p.numel() for p in params)  # 计算并设置模型参数的总数
         if args.comp_filepath == None:  # 如果计算文件路径未设置
             comp_filepath = get_comp_out(args)  # 获取计算输出文件路径
