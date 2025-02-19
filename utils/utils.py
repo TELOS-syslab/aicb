@@ -251,40 +251,99 @@ def Comp_with_aiob(workload, compute_cache):
     return workload
 
 
-def get_comp_out(args):
-    vocab_size = args.vocab_size
-    batch_size = args.micro_batch
-    seq_len = args.seq_length
-    tp = args.tensor_model_parallel_size
-    vocab_size = args.padded_vocab_size
-    if "Megatron" in args.frame:
-        device = torch.cuda.current_device()
-        from workload_generator.mocked_model.AiobMegatron import MegatronModel
+# def get_comp_out(args):
+#     vocab_size = args.vocab_size
+#     batch_size = args.micro_batch
+#     seq_len = args.seq_length
+#     tp = args.tensor_model_parallel_size
+#     vocab_size = args.padded_vocab_size
+#     if "Megatron" in args.frame:
+#         device = torch.cuda.current_device()
+#         from workload_generator.mocked_model.AiobMegatron import MegatronModel
 
-        measure_model = MegatronModel(args)
-        measure_model.train()
-        if args.dtype == "bfloat16":
-            dtype = torch.bfloat16
-        elif args.dtype == "float16":
-            dtype = torch.float16
-        else:
-            dtype = torch.float32
-        # total_input_1 = torch.rand(args.seq_len,
+#         measure_model = MegatronModel(args)
+#         measure_model.train()
+#         if args.dtype == "bfloat16":
+#             dtype = torch.bfloat16
+#         elif args.dtype == "float16":
+#             dtype = torch.float16
+#         else:
+#             dtype = torch.float32
+#         # total_input_1 = torch.rand(args.seq_len,
+#         #                                       args.batch_size,
+#         #                                       args.hidden_size,
+#         #                                       device=device).to(dtype)
+#         masked_input = torch.randint(
+#             0,
+#             math.ceil(vocab_size / tp),
+#             (batch_size, seq_len),
+#             device=device,
+#             dtype=torch.int64,
+#         )
+#         filepath = measure_model(masked_input)
+#         return filepath
+
+    
+def get_comp_out(args):  # 定义get_comp_out函数，获取计算输出
+    vocab_size = args.vocab_size  # 获取词汇表大小
+    batch_size = args.micro_batch  # 获取微批次大小
+    seq_len = args.seq_length  # 获取序列长度
+    tp = args.tensor_model_parallel_size  # 获取张量模型并行大小
+    vocab_size = args.padded_vocab_size  # 更新词汇表大小为填充后的大小
+    if "Megatron" in args.frame:  # 如果框架包含'Megatron'
+        device = torch.cuda.current_device()  # 获取当前CUDA设备
+        from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
+
+        measure_model = MegatronModel(args)  # 初始化Megatron模型
+        measure_model.train()  # 设置模型为训练模式
+        if args.dtype == "bfloat16":  # 如果数据类型是bfloat16
+            dtype = torch.bfloat16  # 设置dtype为bfloat16
+        elif args.dtype == "float16":  # 如果数据类型是float16
+            dtype = torch.float16  # 设置dtype为float16
+        else:  # 否则
+            dtype = torch.float32  # 设置dtype为float32
+        # total_input_1 = torch.rand(args.seq_len,  # 注释掉的代码，用于生成随机输入
         #                                       args.batch_size,
         #                                       args.hidden_size,
         #                                       device=device).to(dtype)
-        masked_input = torch.randint(
+        masked_input = torch.randint(  # 生成随机掩码输入
             0,
-            math.ceil(vocab_size / tp),
-            (batch_size, seq_len),
-            device=device,
-            dtype=torch.int64,
+            math.ceil(vocab_size / tp),  # 范围上限为词汇表大小除以并行大小的向上取整
+            (batch_size, seq_len),  # 输入的形状为（批次大小，序列长度）
+            device=device,  # 指定设备
+            dtype=torch.int64,  # 指定数据类型为int64
         )
-        filepath = measure_model(masked_input)
-        return filepath
-
+        filepath = measure_model(masked_input)  # 运行模型并获取输出文件路径
+        return filepath  # 返回文件路径
     
+    if "Sarathi" in args.frame:  # 如果框架包含'Megatron'
+        device = torch.cuda.current_device()  # 获取当前CUDA设备
+        # print('>>fth Sarathi 250219')
+        # from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
+        from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
 
+        measure_model = MegatronModel(args)  # 初始化Megatron模型
+        measure_model.train()  # 设置模型为训练模式
+        if args.dtype == "bfloat16":  # 如果数据类型是bfloat16
+            dtype = torch.bfloat16  # 设置dtype为bfloat16
+        elif args.dtype == "float16":  # 如果数据类型是float16
+            dtype = torch.float16  # 设置dtype为float16
+        else:  # 否则
+            dtype = torch.float32  # 设置dtype为float32
+        # total_input_1 = torch.rand(args.seq_len,  # 注释掉的代码，用于生成随机输入
+        #                                       args.batch_size,
+        #                                       args.hidden_size,
+        #                                       device=device).to(dtype)
+        masked_input = torch.randint(  # 生成随机掩码输入
+            0,
+            math.ceil(vocab_size / tp),  # 范围上限为词汇表大小除以并行大小的向上取整
+            (batch_size, seq_len),  # 输入的形状为（批次大小，序列长度）
+            device=device,  # 指定设备
+            dtype=torch.int64,  # 指定数据类型为int64
+        )
+        filepath = measure_model(masked_input)  # 运行模型并获取输出文件路径
+        return filepath  # 返回文件路径
+    
 
 def extract_averages(file_path,args):
     attention_avg_sum = 0.0
@@ -495,109 +554,211 @@ class WorkloadWriter:
         return workload, args
 
 
-def get_params():
-    parser = argparse.ArgumentParser()
+# def get_params():
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument(
+#         "--frame",
+#         help="communication framework",
+#         choices=["Megatron", "DeepSpeed", "collective_test"],
+#         default="Megatron",
+#     )
+#     parser.add_argument("--gpu_type", type=str, default=None),
+#     parser.add_argument("--world_size", type=int, default=1,
+#                         help="Number of GPUs")
+#     parser.add_argument("--tensor_model_parallel_size", type=int, default=1,
+#                         help='Degree of tensor model parallelism.')
+#     parser.add_argument("--pipeline_model_parallel", type=int, default=1,
+#                         help='Degree of pipeline model parallelism.')
+#     parser.add_argument('--context-parallel-size', type=int, default=1,
+#                        help='Degree of context parallelism.')
+#     parser.add_argument("--pp_rank", type=int, default=-1,
+#                         help='Rank where encoder and decoder should be split.')
+#     parser.add_argument("--global_batch", type=int, default=4,
+#                         help='Training batch size. If set, it should be a '
+#                        'multiple of micro-batch-size times data-parallel-size. '
+#                        'If this value is None, then '
+#                        'use micro-batch-size * data-parallel-size as the '
+#                        'global batch size. This choice will result in 1 for '
+#                        'number of micro-batches.')
+#     parser.add_argument("--micro_batch", type=int, default=1,
+#                        help='Batch size per model instance (local batch size). '
+#                        'Global batch size is local batch size times data '
+#                        'parallel size times number of micro batches.'
+#                         )
+#     parser.add_argument("--epoch_num", type=int, default=1,
+#                         help="Number of iterations")
+#     parser.add_argument("--computation_enable", action="store_true", help="Enable computation")
+#     parser.add_argument("--dtype", default="bfloat16")
+#     parser.add_argument(
+#         "--ffn_hidden_size",
+#         type=int,
+#         default=None,
+#         help="Transformer Feed-Forward Network hidden size. "
+#         "This is set to 4*hidden-size if not provided",
+#     )
+#     parser.add_argument(
+#         "--enable_visual",
+#         action="store_true",
+#         help="Enable visualization",
+#     )
+#     parser.add_argument("--workload_only", action="store_true", help="Only generate workload")
+#     get_model_params(parser)
+#     get_ds_params(parser)
+#     get_megatron_params(parser)
+#     get_collective_test_params(parser)
+#     get_moe_params(parser)
+#     get_simAI_workload_params(parser)
+#     get_aiob_params(parser)
+#     args = parser.parse_args()
+
+#     assert (
+#         args.world_size % (args.tensor_model_parallel_size * args.pipeline_model_parallel) == 0
+#     ), f"world size: {args.world_size}, tp: {args.tensor_model_parallel_size}, pp: {args.pipeline_model_parallel}"
+#     if args.moe_enable:
+#         assert (
+#             args.moe_enable and args.enable_sequence_parallel
+#         ), f"moe must be enabled with sequence parallel"
+#     args.dp_num = args.world_size // (args.tensor_model_parallel_size * args.pipeline_model_parallel)
+#     # assert args.global_batch % (args.dp_num * args.micro_batch) == 0, \
+#     #     f"global_batch: {args.global_batch}, dp: {args.dp_num}, micro_batch: {args.micro_batch}"
+#     args.num_microbatches = args.global_batch // (args.dp_num * args.micro_batch)
+#     if args.aiob_enable and not args.computation_enable:
+#             args.computation_enable = True
+            
+#     if args.num_attention_heads is None:
+#         args.num_attention_heads = args.num_layers
+
+                    
+#     args.padded_vocab_size = get_padded_vocab_size(args)
+#     if args.ffn_hidden_size is None:
+#         if args.swiglu:
+#             # reduce the dimnesion for MLP since projections happens on
+#             # two linear layers. this keeps the number of paramters in
+#             # the same ballpark as the counterpart with 4*h size
+#             # we keep it a multiple of 64, which means the actual tensor size
+#             # will be a multiple of 64 / tp_size
+#             args.ffn_hidden_size = int((4 * args.hidden_size * 2 / 3) / 64) * 64
+
+#         else:
+#             args.ffn_hidden_size = 4 * args.hidden_size
+#     if args.swiglu:
+#         args.gated_linear_unit = True
+#         args.bias_gelu_fusion = False
+#     # Expert parallelism check
+#     if args.expert_model_parallel_size  > 1:
+#         assert args.num_experts is not None, "num_experts must be non None to use expert model parallelism"
+#         assert args.num_experts % args.expert_model_parallel_size == 0, \
+#             "Number of experts should be a multiple of expert model parallel_size."
+#         assert not args.dtype == "float16", \
+#             "Expert parallelism is not supported with fp16 training."
+#     if args.moe_grouped_gemm:
+#         assert args.dtype == "bfloat16", 'Currently GroupedGEMM for MoE only supports bf16 dtype.'
+#     if args.pipeline_model_parallel > 1 :
+#         args.num_layers = int(args.num_layers//args.pipeline_model_parallel)
+#     return args
+
+def get_params():  # 定义get_params函数，解析命令行参数
+    parser = argparse.ArgumentParser()  # 创建参数解析器
     parser.add_argument(
         "--frame",
         help="communication framework",
-        choices=["Megatron", "DeepSpeed", "collective_test"],
-        default="Megatron",
+        # choices=["Megatron", "DeepSpeed", "collective_test"],  # 可选框架
+        choices=["Megatron", "DeepSpeed", "collective_test", "Sarathi", "Vllm"],  # 可选框架
+        default="Megatron",  # 默认框架
     )
-    parser.add_argument("--gpu_type", type=str, default=None),
+    parser.add_argument("--gpu_type", type=str, default=None),  # 添加gpu_type参数
     parser.add_argument("--world_size", type=int, default=1,
-                        help="Number of GPUs")
+                        help="Number of GPUs")  # 添加world_size参数，GPU数量
     parser.add_argument("--tensor_model_parallel_size", type=int, default=1,
-                        help='Degree of tensor model parallelism.')
+                        help='Degree of tensor model parallelism.')  # 添加张量模型并行大小参数
     parser.add_argument("--pipeline_model_parallel", type=int, default=1,
-                        help='Degree of pipeline model parallelism.')
+                        help='Degree of pipeline model parallelism.')  # 添加流水线模型并行大小参数
     parser.add_argument('--context-parallel-size', type=int, default=1,
-                       help='Degree of context parallelism.')
+                       help='Degree of context parallelism.')  # 添加上下文并行大小参数
     parser.add_argument("--pp_rank", type=int, default=-1,
-                        help='Rank where encoder and decoder should be split.')
+                        help='Rank where encoder and decoder should be split.')  # 添加pp_rank参数
     parser.add_argument("--global_batch", type=int, default=4,
                         help='Training batch size. If set, it should be a '
                        'multiple of micro-batch-size times data-parallel-size. '
                        'If this value is None, then '
                        'use micro-batch-size * data-parallel-size as the '
                        'global batch size. This choice will result in 1 for '
-                       'number of micro-batches.')
+                       'number of micro-batches.')  # 添加global_batch参数
     parser.add_argument("--micro_batch", type=int, default=1,
                        help='Batch size per model instance (local batch size). '
                        'Global batch size is local batch size times data '
-                       'parallel size times number of micro batches.'
+                       'parallel size times number of micro batches.'  # 添加micro_batch参数
                         )
     parser.add_argument("--epoch_num", type=int, default=1,
-                        help="Number of iterations")
-    parser.add_argument("--computation_enable", action="store_true", help="Enable computation")
-    parser.add_argument("--dtype", default="bfloat16")
+                        help="Number of iterations")  # 添加epoch_num参数
+    parser.add_argument("--computation_enable", action="store_true", help="Enable computation")  # 添加computation_enable开关
+    parser.add_argument("--dtype", default="bfloat16")  # 添加dtype参数，默认bfloat16
     parser.add_argument(
         "--ffn_hidden_size",
         type=int,
         default=None,
         help="Transformer Feed-Forward Network hidden size. "
         "This is set to 4*hidden-size if not provided",
-    )
+    )  # 添加ffn_hidden_size参数
     parser.add_argument(
         "--enable_visual",
         action="store_true",
         help="Enable visualization",
-    )
-    parser.add_argument("--workload_only", action="store_true", help="Only generate workload")
-    get_model_params(parser)
-    get_ds_params(parser)
-    get_megatron_params(parser)
-    get_collective_test_params(parser)
-    get_moe_params(parser)
-    get_simAI_workload_params(parser)
-    get_aiob_params(parser)
-    args = parser.parse_args()
+    )  # 添加enable_visual开关
+    parser.add_argument("--workload_only", action="store_true", help="Only generate workload")  # 添加workload_only开关
+    get_model_params(parser)  # 添加模型相关参数
+    get_ds_params(parser)  # 添加DeepSpeed相关参数
+    get_megatron_params(parser)  # 添加Megatron相关参数
+    get_collective_test_params(parser)  # 添加集体测试相关参数
+    get_moe_params(parser)  # 添加MoE相关参数
+    get_simAI_workload_params(parser)  # 添加SimAI工作负载相关参数
+    get_aiob_params(parser)  # 添加AIoB相关参数
+    args = parser.parse_args()  # 解析参数
 
     assert (
         args.world_size % (args.tensor_model_parallel_size * args.pipeline_model_parallel) == 0
-    ), f"world size: {args.world_size}, tp: {args.tensor_model_parallel_size}, pp: {args.pipeline_model_parallel}"
-    if args.moe_enable:
+    ), f"world size: {args.world_size}, tp: {args.tensor_model_parallel_size}, pp: {args.pipeline_model_parallel}"  # 断言world_size可被tp和pp整除
+    if args.moe_enable:  # 如果启用MoE
         assert (
             args.moe_enable and args.enable_sequence_parallel
-        ), f"moe must be enabled with sequence parallel"
-    args.dp_num = args.world_size // (args.tensor_model_parallel_size * args.pipeline_model_parallel)
+        ), f"moe must be enabled with sequence parallel"  # 断言启用MoE时需要启用序列并行
+    args.dp_num = args.world_size // (args.tensor_model_parallel_size * args.pipeline_model_parallel)  # 计算数据并行数量
     # assert args.global_batch % (args.dp_num * args.micro_batch) == 0, \
-    #     f"global_batch: {args.global_batch}, dp: {args.dp_num}, micro_batch: {args.micro_batch}"
-    args.num_microbatches = args.global_batch // (args.dp_num * args.micro_batch)
-    if args.aiob_enable and not args.computation_enable:
-            args.computation_enable = True
-            
-    if args.num_attention_heads is None:
-        args.num_attention_heads = args.num_layers
+    #     f"global_batch: {args.global_batch}, dp: {args.dp_num}, micro_batch: {args.micro_batch}"  # 注释掉的断言，确保全局批次可被数据并行和微批次整除
+    args.num_microbatches = args.global_batch // (args.dp_num * args.micro_batch)  # 计算微批次数量
+    if args.aiob_enable and not args.computation_enable:  # 如果启用AIoB且未启用计算
+            args.computation_enable = True  # 自动启用计算
+                
+    if args.num_attention_heads is None:  # 如果未设置注意力头数量
+        args.num_attention_heads = args.num_layers  # 设置为层数
 
-                    
-    args.padded_vocab_size = get_padded_vocab_size(args)
-    if args.ffn_hidden_size is None:
-        if args.swiglu:
+    args.padded_vocab_size = get_padded_vocab_size(args)  # 获取填充后的词汇表大小
+    if args.ffn_hidden_size is None:  # 如果未设置FFN隐藏大小
+        if args.swiglu:  # 如果使用Swiglu
             # reduce the dimnesion for MLP since projections happens on
             # two linear layers. this keeps the number of paramters in
             # the same ballpark as the counterpart with 4*h size
             # we keep it a multiple of 64, which means the actual tensor size
             # will be a multiple of 64 / tp_size
-            args.ffn_hidden_size = int((4 * args.hidden_size * 2 / 3) / 64) * 64
+            args.ffn_hidden_size = int((4 * args.hidden_size * 2 / 3) / 64) * 64  # 计算Swiglu情况下的FFN隐藏大小
 
         else:
-            args.ffn_hidden_size = 4 * args.hidden_size
-    if args.swiglu:
-        args.gated_linear_unit = True
-        args.bias_gelu_fusion = False
+            args.ffn_hidden_size = 4 * args.hidden_size  # 计算默认情况下的FFN隐藏大小
+    if args.swiglu:  # 如果使用Swiglu
+        args.gated_linear_unit = True  # 启用门控线性单元
+        args.bias_gelu_fusion = False  # 禁用偏置GELU融合
     # Expert parallelism check
-    if args.expert_model_parallel_size  > 1:
-        assert args.num_experts is not None, "num_experts must be non None to use expert model parallelism"
+    if args.expert_model_parallel_size  > 1:  # 如果专家并行大小大于1
+        assert args.num_experts is not None, "num_experts must be non None to use expert model parallelism"  # 断言专家数量不为None
         assert args.num_experts % args.expert_model_parallel_size == 0, \
-            "Number of experts should be a multiple of expert model parallel_size."
+            "Number of experts should be a multiple of expert model parallel_size."  # 断言专家数量可被专家并行大小整除
         assert not args.dtype == "float16", \
-            "Expert parallelism is not supported with fp16 training."
-    if args.moe_grouped_gemm:
-        assert args.dtype == "bfloat16", 'Currently GroupedGEMM for MoE only supports bf16 dtype.'
-    if args.pipeline_model_parallel > 1 :
-        args.num_layers = int(args.num_layers//args.pipeline_model_parallel)
-    return args
-
+            "Expert parallelism is not supported with fp16 training."  # 断言不使用float16训练
+    if args.moe_grouped_gemm:  # 如果启用MoE分组GEMM
+        assert args.dtype == "bfloat16", 'Currently GroupedGEMM for MoE only supports bf16 dtype.'  # 断言数据类型为bfloat16
+    if args.pipeline_model_parallel > 1 :  # 如果流水线并行大小大于1
+        args.num_layers = int(args.num_layers//args.pipeline_model_parallel)  # 调整层数
+    return args  # 返回解析后的参数
 
 ARGS = None
 
