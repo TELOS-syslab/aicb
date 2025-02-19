@@ -674,6 +674,7 @@ class MegatronModel(MockedModel):
         )
 
     def forward(self):
+        print('>>fth  forward我被调用啦')
         workloads = Workload()
         workloads.extend(self.embedding.forward())
         for layer in self.layers:
@@ -682,6 +683,7 @@ class MegatronModel(MockedModel):
         return workloads
 
     def backward(self):
+        print('>>fth  backward我被调用啦')
         workloads = Workload()
         for layer in self.layers[::-1]:
             workloads.extend(layer.backward())

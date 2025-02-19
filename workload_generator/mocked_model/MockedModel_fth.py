@@ -85,7 +85,7 @@ class MockedModel:
 
     def parameters(self) -> List[MockedParam]:  # 获取当前模型的所有参数
         return _unpack_params(self.__dict__)  # 递归解包模型中的所有参数并返回
-
+ 
     def child_modules(self) -> List["MockedModel"]:  # 获取当前模型的所有子模块
         return _child_modules(self.__dict__)  # 递归解包模型中的所有子模块并返回
 
