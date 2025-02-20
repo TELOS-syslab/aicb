@@ -1018,6 +1018,7 @@ if __name__ == "__main__":  # 如果脚本作为主程序运行
         # p.numel() 是 PyTorch 中的一个方法，用于返回张量中元素的总数。
         args.model_param = sum(p.numel() for p in params)  # 计算并设置模型参数的总数
         if args.comp_filepath == None:  # 如果计算文件路径未设置
+            # print(">>fth comp_filepath is None")
             comp_filepath = get_comp_out(args)  # 获取计算输出文件路径
             compute_cache = extract_averages(comp_filepath, args)  # 提取平均计算值
         else:  # 如果计算文件路径已设置

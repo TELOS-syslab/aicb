@@ -59,6 +59,8 @@ class MegatronModel(torch.nn.Module):  # 定义MegatronModel类，继承自torch
         self.grad_param = Grad_param(self.args)  # 初始化梯度参数
 
     def forward(self, input):  # 前向传播方法，接受输入
+        # print('fth >> 我被调用了')
+        
         # if self.args.warm_up:
         #     for _ in range(10):
         #

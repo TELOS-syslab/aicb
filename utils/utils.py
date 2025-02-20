@@ -295,6 +295,8 @@ def get_comp_out(args):  # 定义get_comp_out函数，获取计算输出
         from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
 
         measure_model = MegatronModel(args)  # 初始化Megatron模型
+        # train() 只是设置模型的状态，不会实际运行模型或执行任何计算。
+        # 它只是告诉模型接下来的操作应该遵循训练模式的规则。
         measure_model.train()  # 设置模型为训练模式
         if args.dtype == "bfloat16":  # 如果数据类型是bfloat16
             dtype = torch.bfloat16  # 设置dtype为bfloat16
@@ -313,16 +315,19 @@ def get_comp_out(args):  # 定义get_comp_out函数，获取计算输出
             device=device,  # 指定设备
             dtype=torch.int64,  # 指定数据类型为int64
         )
+        # 对于 PyTorch 模型来说，__call__ 方法内部会调用模型的 forward() 方法，从而执行前向传播（forward pass）。
+        # print('>> fth 开始调用我 measure_model')
         filepath = measure_model(masked_input)  # 运行模型并获取输出文件路径
         return filepath  # 返回文件路径
     
-    if "Sarathi" in args.frame:  # 如果框架包含'Megatron'
+    elif "Sarathi" in args.frame:  # 如果框架包含'Megatron'
         device = torch.cuda.current_device()  # 获取当前CUDA设备
         # print('>>fth Sarathi 250219')
         # from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
-        from workload_generator.mocked_model.AiobMegatron import MegatronModel  # 导入MegatronModel
+        from workload_generator.mocked_model.AiobSarathi import SarathiModel  # 导入MegatronModel
 
-        measure_model = MegatronModel(args)  # 初始化Megatron模型
+        # measure_model = MegatronModel(args)  # 初始化Megatron模型
+        measure_model = SarathiModel(args)  # 初始化Megatron模型
         measure_model.train()  # 设置模型为训练模式
         if args.dtype == "bfloat16":  # 如果数据类型是bfloat16
             dtype = torch.bfloat16  # 设置dtype为bfloat16
@@ -455,21 +460,37 @@ def process_all_keys(input_file):
         print("Invalid JSON content:\n", corrected_content)
 
 
-def cuda_timing_decorator(func):
-    def wrapper(*args, **kwargs):
+# def cuda_timing_decorator(func):
+#     def wrapper(*args, **kwargs):
 
-        start_event = torch.cuda.Event(enable_timing=True)
-        end_event = torch.cuda.Event(enable_timing=True)
+#         start_event = torch.cuda.Event(enable_timing=True)
+#         end_event = torch.cuda.Event(enable_timing=True)
 
-        start_event.record()
-        result = func(*args, **kwargs)
-        end_event.record()
-        torch.cuda.synchronize()
+#         start_event.record()
+#         result = func(*args, **kwargs)
+#         end_event.record()
+#         torch.cuda.synchronize()
 
-        elapsed_time_ms = start_event.elapsed_time(end_event) * 1000  # 时间以毫秒为单位
-        return result, elapsed_time_ms
+#         elapsed_time_ms = start_event.elapsed_time(end_event) * 1000  # 时间以毫秒为单位
+#         return result, elapsed_time_ms
 
-    return wrapper
+#     return wrapper
+
+def cuda_timing_decorator(func):  # 定义cuda_timing_decorator装饰器
+    def wrapper(*args, **kwargs):  # 定义包装函数
+        start_event = torch.cuda.Event(enable_timing=True)  # 创建开始事件
+        end_event = torch.cuda.Event(enable_timing=True)  # 创建结束事件
+
+        start_event.record()  # 记录开始事件
+        result = func(*args, **kwargs)  # 调用被装饰的函数并获取结果
+        end_event.record()  # 记录结束事件
+        torch.cuda.synchronize()  # 同步CUDA
+
+        elapsed_time_ms = start_event.elapsed_time(end_event) * 1000  # 计算经过时间，单位为毫秒
+        return result, elapsed_time_ms  # 返回结果和经过时间
+
+    return wrapper  # 返回包装函数
+
 def get_aiob_path(args):
     result_dir = "./results/aiob_outputs"
     if not os.path.isdir(result_dir):

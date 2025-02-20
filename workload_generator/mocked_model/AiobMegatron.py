@@ -59,6 +59,8 @@ class MegatronModel(torch.nn.Module):
         self.grad_param = Grad_param(self.args)
 
     def forward(self, input):
+        print('>> fth 我被调用了')
+
         # if self.args.warm_up:
         #     for _ in range(10):
 

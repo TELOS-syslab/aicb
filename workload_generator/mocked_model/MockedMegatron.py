@@ -591,6 +591,7 @@ class MegatronTransformorLayer(MockedModel):
 
 class MegatronEmbedding(MockedModel):
     def __init__(self, padded_vocab_size, hidden_size, tp, seq_len, batch_size):
+        # print('>>>fth 调用init')
         self.name = "embedding_layer"
         self.layer_id = 0
         num_embedding_per_partition = divide(padded_vocab_size, tp)
@@ -603,6 +604,7 @@ class MegatronEmbedding(MockedModel):
         self.comm_size = 2 * batch_size * seq_len * hidden_size
 
     def forward(self):
+        # print('>>>fth 调用/disk1/futianhao/software1/aicb/workload_generator/mocked_model/MockedMegatron.py 的 def forward(self):')
         workloads = Workload()
         if self.tensor_model_parallel_size > 1:
             workloads.append(
@@ -617,6 +619,7 @@ class MegatronEmbedding(MockedModel):
         return workloads
 
     def backward(self):
+        # print('>>>fth 调用/disk1/futianhao/software1/aicb/workload_generator/mocked_model/MockedMegatron.py 的 def backward(self):')
         workloads = Workload()
         if self.tensor_model_parallel_size > 1:
             workloads.append(
@@ -672,9 +675,10 @@ class MegatronModel(MockedModel):
             computation_enable=config.computation_enable,
             add_bias_linear=config.add_bias_linear,
         )
+        # print('>> fth 调用这个init')
 
     def forward(self):
-        print('>>fth  forward我被调用啦')
+        # print('>>fth  forward我被调用啦')
         workloads = Workload()
         workloads.extend(self.embedding.forward())
         for layer in self.layers:
@@ -683,7 +687,7 @@ class MegatronModel(MockedModel):
         return workloads
 
     def backward(self):
-        print('>>fth  backward我被调用啦')
+        # print('>>fth  backward我被调用啦')
         workloads = Workload()
         for layer in self.layers[::-1]:
             workloads.extend(layer.backward())
