@@ -80,6 +80,7 @@ class LayerInfo:
 
 class SIMAI_workload:
     def __init__(self, model, args, compute_cache=None):
+        print("----fth 调用class SIMAI_workload /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
         self.model = model
         self.args = args
         self.compute_cache = compute_cache
@@ -145,6 +146,7 @@ class SIMAI_workload:
         return total_params, moe_param_count
 
     def workload_generate_aiob(self):
+        print(">>fth 走workload_generate_aiob /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
         # args.world_size --> total gpus number
         self.ga_num = self.args.global_batch // (self.args.micro_batch * self.args.dp_num)
         if self.ga_num < 1:
@@ -166,6 +168,7 @@ class SIMAI_workload:
         forward_compute_time = _get_aiob_compute_time(
             self.compute_cache, "forward", "grad"
         )
+        print(f">>fth forward_compute_time:{forward_compute_time} /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
         backward_compute_time = _get_aiob_compute_time(
             self.compute_cache, "backward", "grad"
         )
@@ -542,6 +545,7 @@ class SIMAI_workload:
             )
 
     def workload_generate(self):
+        print(">>fth 走workload_generate /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
         # args.world_size --> total gpus number
         self.ga_num = self.args.global_batch // (self.args.micro_batch * self.args.dp_num)
         if self.ga_num < 1:
@@ -872,7 +876,9 @@ class simAI_MicroTest:
 if __name__ == "__main__":
     args = get_params()
     print(args)
+    print("--fth 进入调用model = MegatronModel(args) /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
     model = MegatronModel(args)
+    print("--fth 推出调用model = MegatronModel(args) /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
     result_dir = "results/workload/"
     if not os.path.isdir(result_dir):
         os.makedirs(result_dir)
@@ -887,7 +893,7 @@ if __name__ == "__main__":
         params = model.parameters()
         args.model_param = sum(p.numel() for p in params)
         if args.comp_filepath == None:
-
+            # print(f"-----fth 定位 /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
             comp_filepath = get_comp_out(args)
 
             compute_cache = extract_averages(comp_filepath,args)

@@ -636,6 +636,7 @@ class MegatronEmbedding(MockedModel):
 
 class MegatronModel(MockedModel):
     def __init__(self, config):
+        print(f">>fth 调用class MegatronModel(MockedModel): /disk1/futianhao/software1/aicb/workload_generator/mocked_model/MockedMegatron.py ")
         self.embedding = MegatronEmbedding(
             config.padded_vocab_size,
             config.hidden_size,

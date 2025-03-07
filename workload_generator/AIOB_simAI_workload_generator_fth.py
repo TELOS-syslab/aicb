@@ -169,6 +169,7 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
         forward_compute_time = _get_aiob_compute_time(
             self.compute_cache, "forward", "grad"
         )
+        print(f">>fth forward_compute_time:{forward_compute_time} /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator.py")
         # 获取反向计算时间
         backward_compute_time = _get_aiob_compute_time(
             self.compute_cache, "backward", "grad"

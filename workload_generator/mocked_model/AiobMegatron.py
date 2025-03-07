@@ -59,7 +59,7 @@ class MegatronModel(torch.nn.Module):
         self.grad_param = Grad_param(self.args)
 
     def forward(self, input):
-        print('>> fth 我被调用了')
+        print('>> fth MegatronModel(torch.nn.Module)被调用了 /disk1/futianhao/software1/aicb/workload_generator/mocked_model/AiobMegatron.py')
 
         # if self.args.warm_up:
         #     for _ in range(10):

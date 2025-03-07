@@ -2,7 +2,7 @@ HYBRID_TRANSFORMER_FWD_IN_BCKWD model_parallel_NPU_group: 1 ep: 1 pp: 1 vpp: 24 
 12
 grad_gather	-1	1	NONE	0	1	NONE	0	1	ALLGATHER	0	100
 grad_param_comm	-1	1	NONE	0	1	NONE	0	1	REDUCESCATTER	0	100
-grad_param_compute	-1	1	NONE	0	126701568	NONE	0	1	NONE	0	100
+grad_param_compute	-1	1	NONE	0	126562302	NONE	0	1	NONE	0	100
 layernorm	-1	1	NONE	0	1	ALLREDUCE	0	1	NONE	0	100
 embedding_grads	-1	1	NONE	0	1	NONE	25165824	1	NONE	0	100
 cross_entropy1	-1	0	ALLREDUCE	8192	0	NONE	0	0	NONE	0	100

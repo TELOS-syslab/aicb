@@ -42,6 +42,7 @@ except ImportError:
 # class MegatronModel(torch.nn.Module):  # 定义MegatronModel类，继承自torch.nn.Module
 class SarathiModel(torch.nn.Module):  # 定义MegatronModel类，继承自torch.nn.Module
     def __init__(self, args=None):  # 初始化方法，接受可选的args参数
+
         # super(MegatronModel, self).__init__()  # 调用父类的初始化方法
         super(SarathiModel, self).__init__()  # 调用父类的初始化方法
         self.time_list = {}  # 初始化time_list为空字典，用于记录时间
@@ -64,8 +65,12 @@ class SarathiModel(torch.nn.Module):  # 定义MegatronModel类，继承自torch.
             self.Mlp = SarathiMlp(self.args)  # 否则使用MegatronMlp
         self.logit = logit(self.args)  # 初始化logit层
         self.grad_param = Grad_param(self.args)  # 初始化梯度参数
+        
+        # print(">>fth 调用我啦SarathiModel init /disk1/futianhao/software1/aicb/workload_generator/mocked_model/AiobSarathi.py")
 
     def forward(self, input):  # 前向传播方法，接受输入
+        # print(">>fth 调用我啦SarathiModel forward /disk1/futianhao/software1/aicb/workload_generator/mocked_model/AiobSarathi.py")
+
         # if self.args.warm_up:
         #     for _ in range(10):
         #

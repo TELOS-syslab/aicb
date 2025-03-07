@@ -60,7 +60,7 @@ class MegatronModel(torch.nn.Module):  # 定义MegatronModel类，继承自torch
 
     def forward(self, input):  # 前向传播方法，接受输入
         # print('fth >> 我被调用了')
-        
+
         # if self.args.warm_up:
         #     for _ in range(10):
         #
@@ -201,23 +201,26 @@ def linear_with_grad_accumulation_and_async_allreduce(
 ) -> torch.Tensor:  # 定义线性层与梯度累积和异步通信的函数
     """Linear layer execution with asynchronous communication and
     gradient accumulation fusion in backprop.
-    # 文档字符串，描述函数的作用
+    # 文档字符串，描述函数的作用 线性层执行 与 异步通信 及 反向传播中的梯度累积融合。
 
     This has the option to accumulate the result of backprop
     calculation into an existing gradient buffer, preventing the need
     to do an additional addition kernel after the gradient
     calculation.
     # 解释梯度累积融合的功能
+    该模块 提供了 将反向传播计算结果 累积到 现有梯度缓冲区的选项，避免 在梯度计算后 进行额外的加法核操作的需要。
 
     Additionally, the tensor parallel all reduce of the input
     gradients can be done asynchronously with the calculation of
     the weight gradients.
     # 解释异步梯度全归约的功能
+    此外，输入梯度的张量并行 全归约（all reduce）可以 与权重梯度的计算 异步进行。
 
     In the case of sequence parallelism, the reduce scatter of the
     input gradients is done asynchronously with the calculation of the
     weight gradients.
     # 解释序列并行情况下的梯度处理方式
+    在序列并行（sequence parallelism）的情况下，输入梯度的 归约散列（reduce scatter）与 权重梯度的计算 异步进行。
 
     Use of this module requires that the environment variable
     CUDA_DEVICE_MAX_CONNECTIONS=1. There are a few collective
@@ -228,14 +231,21 @@ def linear_with_grad_accumulation_and_async_allreduce(
     CUDA_DEVICE_MAX_CONNECTIONS=1 forces the kernels to be scheduled
     in the order they are called.
     # 解释使用此模块的环境变量要求
+    使用此模块需要设置环境变量 `CUDA_DEVICE_MAX_CONNECTIONS=1`。
+    代码中标注的一些集体操作 应该在计算核之前调度，以覆盖通信与计算的重叠，这是实现加速所必需的，但并非正确性的要求，因此调度器不会强制顺序执行。
+    设置 `CUDA_DEVICE_MAX_CONNECTIONS=1` 强制核按调用顺序调度。
 
-    Arguments:
+
+    Arguments: 参数
 
     input (torch.Tensor required): input like torch.nn.functional.linear
+    input (torch.Tensor 必需)：类似于 `torch.nn.functional.linear` 的输入张量。
 
     weight (torch.Tensor required): weight like torch.nn.functional.linear
+    weight (torch.Tensor 必需)：类似于 `torch.nn.functional.linear` 的权重张量。
 
     bias (torch.Tensor optional): bias like torch.nn.functional.linear
+    bias (torch.Tensor 可选)：类似于 `torch.nn.functional.linear` 的偏置张量。
 
     gradient_accumulation_fusion (bool required): Perform the gradient
         accumulation fusion, requires the custom CUDA extension
@@ -245,16 +255,26 @@ def linear_with_grad_accumulation_and_async_allreduce(
         --global-option=\"--cpp_ext\" --global-option=\"--cuda_ext .\"
         " Note that the extension requires CUDA>=11. Otherwise, you
         must turn off gradient accumulation fusion.
+    gradient_accumulation_fusion (bool 必需)：执行梯度累积融合，需要自定义的 CUDA 扩展 `fused_weight_gradient_mlp_cuda` 模块。
+    要使用梯度累积融合，必须安装 APEX 并启用 `--cpp_ext` 和 `--cuda_ext`。
+    例如："pip install --global-option=\"--cpp_ext\" --global-option=\"--cuda_ext .\""。
+    请注意，该扩展要求 CUDA >= 11。否则，必须关闭梯度累积融合。
+
 
     async_grad_allreduce (bool required): Do the allreduce of input
         gradients asyncronously with the computation of weight
         gradients. If sequence_parallel is True, this must be
         False, as no all reduce is performed.
+    async_grad_allreduce (bool 必需)：在计算权重梯度时异步进行输入梯度的全归约。
+    如果 `sequence_parallel` 为 True，则此参数必须为 False，因为不会执行全归约。
+
 
     sequence_parallel (bool required): Indicates that sequence
         parallelism is used and thus in the forward pass the input is
         all gathered, and the backward pass the input gradients are
         reduce scattered.
+    sequence_parallel (bool 必需)：指示是否使用序列并行，因此在前向传播中输入被全收集，在反向传播中输入梯度被归约散列。
+
     """
     args = [
         input,
