@@ -1,0 +1,37 @@
+train_iter:10
+Emb:
+    time_gpu_max: 0
+    time_gpu_min: 0
+    time_gpu_avg: 0
+layernorm:
+    time_gpu_max: 9
+    time_gpu_min: 9
+    time_gpu_avg: 9
+atten_qkv:
+    time_gpu_max: 1
+    time_gpu_min: 1
+    time_gpu_avg: 1
+atten_flash:
+    time_gpu_max: 0
+    time_gpu_min: 0
+    time_gpu_avg: 0
+layernorm2:
+    time_gpu_max: 105
+    time_gpu_min: 95
+    time_gpu_avg: 102
+mlp_linear_1:
+    time_gpu_max: 3369
+    time_gpu_min: 3016
+    time_gpu_avg: 3279
+mlp_gelu:
+    time_gpu_max: 267
+    time_gpu_min: 248
+    time_gpu_avg: 262
+mlp_linear_2:
+    time_gpu_max: 1605
+    time_gpu_min: 1428
+    time_gpu_avg: 1560
+layernorm_post:
+    time_gpu_max: 55
+    time_gpu_min: 55
+    time_gpu_avg: 55
