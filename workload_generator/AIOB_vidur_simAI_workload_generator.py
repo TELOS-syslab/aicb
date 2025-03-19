@@ -717,7 +717,7 @@ class Vidur_SIMAI_workload:
         default_compute_time = 1  # 初始化默认计算时间
         # 初始化计算时间为0
         compute_time = 0  # 初始化计算时间
-        # 计算张量并行通信大小
+        # 计算张量并行通信大小 # fth可以复用
         tp_comm_size = (
             2 * self.args.micro_batch * self.args.seq_length * self.args.hidden_size  # 计算张量并行通信大小
         )
@@ -998,7 +998,7 @@ class Vidur_SIMAI_workload:
 
 if __name__ == "__main__":  # 如果脚本作为主程序运行
     args = get_params()  # 获取参数
-    model = SarathiModel(args)  # 初始化 MegatronModel 模型
+    model =  SarathiModel(args)  # 初始化 MegatronModel 模型
     
     # model = MegatronModel(args)  # 初始化 MegatronModel 模型
     
