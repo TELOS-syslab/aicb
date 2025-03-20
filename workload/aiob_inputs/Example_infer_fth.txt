@@ -1,37 +1,57 @@
 train_iter:10
-Emb:
+attn_input_reshape:
     time_gpu_max: 0
     time_gpu_min: 0
     time_gpu_avg: 0
-layernorm:
+attn_decode:
     time_gpu_max: 9
     time_gpu_min: 9
     time_gpu_avg: 9
-atten_qkv:
+attn_output_reshape:
     time_gpu_max: 1
     time_gpu_min: 1
     time_gpu_avg: 1
-atten_flash:
+attn_prefill:
     time_gpu_max: 0
     time_gpu_min: 0
     time_gpu_avg: 0
-layernorm2:
+emb:
+    time_gpu_max: 239
+    time_gpu_min: 215
+    time_gpu_avg: 230
+input_layernorm:
     time_gpu_max: 105
     time_gpu_min: 95
     time_gpu_avg: 102
-mlp_linear_1:
+attn_pre_proj:
+    time_gpu_max: 1912
+    time_gpu_min: 1711
+    time_gpu_avg: 1857
+attn_rope:
+    time_gpu_max: 151
+    time_gpu_min: 138
+    time_gpu_avg: 147
+attn_post_proj:
+    time_gpu_max: 612
+    time_gpu_min: 571
+    time_gpu_avg: 600
+post_attention_layernorm:
+    time_gpu_max: 105
+    time_gpu_min: 95
+    time_gpu_avg: 102
+mlp_up_proj:
     time_gpu_max: 3369
     time_gpu_min: 3016
     time_gpu_avg: 3279
-mlp_gelu:
+mlp_act:
     time_gpu_max: 267
     time_gpu_min: 248
     time_gpu_avg: 262
-mlp_linear_2:
+mlp_down_proj:
     time_gpu_max: 1605
     time_gpu_min: 1428
     time_gpu_avg: 1560
-layernorm_post:
+add:
     time_gpu_max: 55
     time_gpu_min: 55
     time_gpu_avg: 55
