@@ -687,6 +687,7 @@ def get_params():  # 定义get_params函数，解析命令行参数
         choices=["Megatron", "DeepSpeed", "collective_test", "Sarathi", "Vllm"],  # 可选框架
         default="Megatron",  # 默认框架
     )
+    parser.add_argument("--is_inference", type=bool, default=False),  # fth 添加is_inference参数m 默认是训练， 
     parser.add_argument("--gpu_type", type=str, default=None),  # 添加gpu_type参数
     parser.add_argument("--world_size", type=int, default=1,
                         help="Number of GPUs")  # 添加world_size参数，GPU数量
