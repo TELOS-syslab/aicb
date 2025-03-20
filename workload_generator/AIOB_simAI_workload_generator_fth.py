@@ -20,6 +20,7 @@ from typing import List, Tuple  # 导入类型注解支持
 from collections import deque  # 导入双端队列
 import dataclasses  # 导入数据类支持
 from enum import Enum  # 导入枚举类型支持
+import pdb
 
 try:
     import torch  # 尝试导入 PyTorch 库
@@ -61,8 +62,9 @@ def _get_aiob_compute_time(compute_cache, forward_or_backward, stage):  # 定义
         if prefix == key:  # 如果前缀匹配键
             compute_time = compute_time_map.get(key)  # 获取对应的计算时间
             return compute_time  # 返回计算时间
-
+    
     print("[warn] can't match any stage", stage)  # 如果未匹配到任何阶段，打印警告信息
+    # pdb.set_trace() # fth
     return 1  # 返回默认值 1
 
 def _get_aiob_compute_time_inference(compute_cache, forward_or_backward, stage):  # 定义获取 AIOB 计算时间的函数
@@ -73,6 +75,22 @@ def _get_aiob_compute_time_inference(compute_cache, forward_or_backward, stage):
         prefix = "Emb"  # 前缀为 "Emb"
     elif stage == "final":  # 如果阶段是最终层
         prefix = "attention" + "_" + forward_or_backward  # 构造前缀，例如 "attention_forward"
+    elif stage == "mlp_layer_prefill_forward":
+        prefix == "mlp_layer_prefill_forward"
+    elif stage == "attention_layer_prefill_forward":
+        prefix == "attention_layer_prefill_forward"
+    elif stage == "mlp_layer_decode_forward":
+        prefix == "mlp_layer_decode_forward"
+    elif stage == "attention_layer_decode_forward":
+        prefix == "attention_layer_decode_forward"
+    elif stage == "emb":
+        prefix == "emb"
+    elif stage == "add":
+        prefix == "add"
+    elif prefix == "mlp":
+        prefix == "mlp"
+    elif prefix == "att":
+        prefix == "att"
     else:  # 其他情况
         prefix = stage + "_" + forward_or_backward  # 构造前缀，例如 "mlp_forward"
 
@@ -745,76 +763,103 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
         #                         ))
         # 获取前向计算时间
         
-        forward_compute_time = _get_aiob_compute_time(
-            self.compute_cache, "forward", "grad"
-        )
-        print(f">>fth forward_compute_time:{forward_compute_time} /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator_fth.py")
+        if args.is_inference == False:
+            forward_compute_time = _get_aiob_compute_time(
+                self.compute_cache, "forward", "grad"
+            )
+            print(f">>fth forward_compute_time:{forward_compute_time} /disk1/futianhao/software1/aicb/workload_generator/AIOB_simAI_workload_generator_fth.py")
         # 获取反向计算时间 inference等于0等于0 不用管
-        backward_compute_time = _get_aiob_compute_time(
-            self.compute_cache, "backward", "grad"
-        )
+        if args.is_inference == False:
+            backward_compute_time = _get_aiob_compute_time(
+                self.compute_cache, "backward", "grad"
+            )
         # print(f"??fth backward_compute_time={backward_compute_time}")
         # 添加名为"grad_gather"的工作项，涉及所有聚集操作
-        self.workload.append(
-            Work_Item(
-                name="grad_gather",
-                forward_compute_time=default_compute_time,  # 前向计算时间
-                forward_comm="NONE",  # 前向通信方式
-                forward_comm_size=0,  # 前向通信大小
-                backward_compute_time=default_compute_time,  # 反向计算时间
-                backward_comm="NONE",  # 反向通信方式
-                backward_comm_size=0,  # 反向通信大小
-                dp_compute_time=default_compute_time,  # 数据并行计算时间
-                dp_comm="ALLGATHER",  # 数据并行通信方式
-                dp_comm_size=2 * (total_params - moe_param_count),  # 数据并行通信大小
-            )
-        )
-        # 添加名为"grad_param_comm"的工作项，涉及参数通信
-        self.workload.append(
-            Work_Item(
-                name="grad_param_comm",
-                forward_compute_time=default_compute_time,  # 前向计算时间
-                forward_comm="NONE",  # 前向通信方式
-                forward_comm_size=0,  # 前向通信大小
-                backward_compute_time=default_compute_time,  # 反向计算时间
-                backward_comm="NONE",  # 反向通信方式
-                backward_comm_size=0,  # 反向通信大小
-                dp_compute_time=default_compute_time,  # 数据并行计算时间
-                dp_comm="REDUCESCATTER",  # 数据并行通信方式
-                dp_comm_size=4 * (total_params - moe_param_count),  # 数据并行通信大小
-            )
-        )
-        # 添加名为"grad_param_compute"的工作项，涉及参数计算
-        self.workload.append(
-            Work_Item(
-                name="grad_param_compute",
-                forward_compute_time=default_compute_time,  # 前向计算时间
-                forward_comm="NONE",  # 前向通信方式
-                forward_comm_size=0,  # 前向通信大小
-                backward_compute_time=forward_compute_time + backward_compute_time,  # 反向计算时间
-                backward_comm="NONE",  # 反向通信方式
-                backward_comm_size=0,  # 反向通信大小
-                dp_compute_time=default_compute_time,  # 数据并行计算时间
-                dp_comm="NONE",  # 数据并行通信方式
-                dp_comm_size=0,  # 数据并行通信大小
-            )
-        )
-        # 如果不启用序列并行，添加"layernorm"的工作项
-        if not self.args.enable_sequence_parallel:
+        if args.is_inference == False:
             self.workload.append(
                 Work_Item(
-                    name="layernorm",
+                    name="grad_gather",
                     forward_compute_time=default_compute_time,  # 前向计算时间
                     forward_comm="NONE",  # 前向通信方式
                     forward_comm_size=0,  # 前向通信大小
                     backward_compute_time=default_compute_time,  # 反向计算时间
-                    backward_comm="ALLREDUCE",  # 反向通信方式
-                    backward_comm_size=2 * total_params,  # 反向通信大小
+                    backward_comm="NONE",  # 反向通信方式
+                    backward_comm_size=0,  # 反向通信大小
+                    dp_compute_time=default_compute_time,  # 数据并行计算时间
+                    dp_comm="ALLGATHER",  # 数据并行通信方式
+                    dp_comm_size=2 * (total_params - moe_param_count),  # 数据并行通信大小
+                )
+            )
+            # 添加名为"grad_param_comm"的工作项，涉及参数通信
+            self.workload.append(
+                Work_Item(
+                    name="grad_param_comm",
+                    forward_compute_time=default_compute_time,  # 前向计算时间
+                    forward_comm="NONE",  # 前向通信方式
+                    forward_comm_size=0,  # 前向通信大小
+                    backward_compute_time=default_compute_time,  # 反向计算时间
+                    backward_comm="NONE",  # 反向通信方式
+                    backward_comm_size=0,  # 反向通信大小
+                    dp_compute_time=default_compute_time,  # 数据并行计算时间
+                    dp_comm="REDUCESCATTER",  # 数据并行通信方式
+                    dp_comm_size=4 * (total_params - moe_param_count),  # 数据并行通信大小
+                )
+            )
+
+            # 添加名为"grad_param_compute"的工作项，涉及参数计算
+            self.workload.append(
+                Work_Item(
+                    name="grad_param_compute",
+                    # forward_compute_time=default_compute_time,  # 前向计算时间
+                    forward_compute_time=default_compute_time,  # 前向计算时间
+                    forward_comm="NONE",  # 前向通信方式
+                    forward_comm_size=0,  # 前向通信大小
+                    backward_compute_time=forward_compute_time + backward_compute_time,  # 反向计算时间
+                    backward_comm="NONE",  # 反向通信方式
+                    backward_comm_size=0,  # 反向通信大小
                     dp_compute_time=default_compute_time,  # 数据并行计算时间
                     dp_comm="NONE",  # 数据并行通信方式
                     dp_comm_size=0,  # 数据并行通信大小
                 )
             )
+
+        if args.is_inference == False:
+
+            # 如果不启用序列并行，添加"layernorm"的工作项
+            if not self.args.enable_sequence_parallel:
+                self.workload.append(
+                    Work_Item(
+                        name="layernorm",
+                        forward_compute_time=default_compute_time,  # 前向计算时间
+                        forward_comm="NONE",  # 前向通信方式
+                        forward_comm_size=0,  # 前向通信大小
+                        backward_compute_time=default_compute_time,  # 反向计算时间
+                        backward_comm="ALLREDUCE",  # 反向通信方式
+                        backward_comm_size=2 * total_params,  # 反向通信大小
+                        dp_compute_time=default_compute_time,  # 数据并行计算时间
+                        dp_comm="NONE",  # 数据并行通信方式
+                        dp_comm_size=0,  # 数据并行通信大小
+                    )
+                )
+
+        elif args.is_inference == True:
+            # 如果不启用序列并行，添加"layernorm"的工作项
+            if not self.args.enable_sequence_parallel:
+                self.workload.append(
+                    Work_Item(
+                        name="layernorm",
+                        forward_compute_time=default_compute_time,  # 前向计算时间
+                        forward_comm="NONE",  # 前向通信方式
+                        forward_comm_size=0,  # 前向通信大小
+                        backward_compute_time=default_compute_time,  # 反向计算时间
+                        backward_comm="NONE",  # 反向通信方式
+                        backward_comm_size=0,  # 反向通信大小
+                        dp_compute_time=default_compute_time,  # 数据并行计算时间
+                        dp_comm="NONE",  # 数据并行通信方式
+                        dp_comm_size=0,  # 数据并行通信大小
+                    )
+                )
+
         # 根据张量模型并行大小设置嵌入层反向通信方式
         if args.tensor_model_parallel_size == 1 :
             emd_backward_comm = "NONE"  # 如果并行度为1，无需通信
@@ -1534,6 +1579,7 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
             )  # 添加"optimizer"的工作项
 
     def dump_file(self, filename):
+        # print("??fth def dump_file(self, filen in class simai workload")
         filename = filename + ".txt"  # 将文件名加上.txt后缀
 
         # 计算管道并行通信值
@@ -1607,6 +1653,7 @@ class simAI_MicroTest:  # 定义 simAI_MicroTest 类
             curr_size *= 2  # 将当前大小翻倍
 
     def dump_file(self, filename):  # 定义方法 dump_file，用于将工作负载保存到文件
+        # print("??fth def dump_file(self, filen in class simai microtest")
         filename = filename + ".txt"  # 文件名添加 ".txt" 后缀
         with open(filename, "w") as f:  # 以写模式打开文件
             if not self.args.multi_all_reduce_enable:  # 如果未启用多重 All Reduce
