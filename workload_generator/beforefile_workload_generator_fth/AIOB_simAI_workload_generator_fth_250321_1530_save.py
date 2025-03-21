@@ -854,61 +854,6 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
                 )
 
         elif args.is_inference == True:
-
-            # 根据张量模型并行大小设置嵌入层反向通信方式
-            if args.tensor_model_parallel_size == 1 :
-                emd_backward_comm = "NONE"  # 如果并行度为1，无需通信
-            else:
-                emd_backward_comm = "ALLREDUCE"  # 否则，使用ALLREDUCE通信
-            # 添加名为"embedding_grads"的工作项，涉及嵌入梯度的通信
-            self.workload.append(
-                Work_Item(
-                    name="mlp_layer",
-                    forward_compute_time=self.get_mlp_layer_execution_time(self),  # 前向计算时间
-                    forward_comm="NONE",  # 前向通信方式
-                    forward_comm_size=0,  # 前向通信大小
-                    backward_compute_time=0,  # 反向计算时间
-                    backward_comm=0,  # 反向通信方式
-                    backward_comm_size=0,  # 反向通信大小
-                    dp_compute_time=default_compute_time,  # 数据并行计算时间
-                    dp_comm="NONE",  # 数据并行通信方式
-                    dp_comm_size=0,  # 数据并行通信大小
-                )
-            )
-
-            self.workload.append(
-                Work_Item(
-                    name="att_layer",
-                    forward_compute_time=self.get_attention_layer_execution_time(self),  # 前向计算时间
-                    forward_comm="NONE",  # 前向通信方式
-                    forward_comm_size=0,  # 前向通信大小
-                    backward_compute_time=0,  # 反向计算时间
-                    backward_comm=0,  # 反向通信方式
-                    backward_comm_size=0,  # 反向通信大小
-                    dp_compute_time=default_compute_time,  # 数据并行计算时间
-                    dp_comm="NONE",  # 数据并行通信方式
-                    dp_comm_size=0,  # 数据并行通信大小
-                )
-            )
-
-            self.workload.append(
-                Work_Item(
-                    name="add",
-                    forward_compute_time=self.get_attention_layer_execution_time(self),  # 前向计算时间
-                    forward_comm="NONE",  # 前向通信方式
-                    forward_comm_size=0,  # 前向通信大小
-                    backward_compute_time=0,  # 反向计算时间
-                    backward_comm=0,  # 反向通信方式
-                    backward_comm_size=0,  # 反向通信大小
-                    dp_compute_time=default_compute_time,  # 数据并行计算时间
-                    dp_comm="NONE",  # 数据并行通信方式
-                    dp_comm_size=0,  # 数据并行通信大小
-                )
-            )
-
-
-
-            ########### fth 重新改
             # 如果不启用序列并行，添加"layernorm"的工作项
             if not self.args.enable_sequence_parallel:
                 self.workload.append(
