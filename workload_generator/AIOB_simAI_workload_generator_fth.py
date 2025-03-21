@@ -123,6 +123,7 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
             self.expert_model_parallel_size = args.expert_model_parallel_size  # 设置专家模型并行度
             self.num_experts = args.num_experts  # 设置专家数量
             self.topk = args.moe_router_topk  # 设置路由专家数量
+        self._predictions={} # fth
 
     def get_model_details(self):  # 获取模型的详细信息
         layers = []  # 存储层信息的列表
@@ -733,6 +734,186 @@ class SIMAI_workload:  # 定义一个类用于生成工作负载
                     dp_comm_size=0,  # 数据并行通信大小
                 )
             )
+
+    #####fth
+
+    def generate_prediction(self):
+        # 定义文件路径
+        # file_path = "/disk1/futianhao/software1/aicb/workload/aiob_inputs/Example_infer_fth.txt"
+        file_path = "/app/software1/aicb/workload/aiob_inputs/Example_infer_fth.txt"
+
+        # 初始化一个空字典，用于存储预测数据
+        self = type('', (), {})()  # 创建一个空对象来模拟self
+        self._predictions = {}
+
+        # 打开文件并逐行读取
+        try:
+            with open(file_path, 'r') as file:
+                current_module = None  # 用于记录当前模块名称
+                for line in file:
+                    line = line.strip()  # 去除行首尾的空格和换行符
+                    
+                    # 如果行不为空，则进行处理
+                    if line:
+                        if line.startswith("train_iter"):  # 处理训练迭代数的行
+                            # 分割键和值，并存储到_predictions字典中
+                            key, value = line.split(':', 1)
+                            self._predictions[key.strip()] = int(value.strip())
+                        elif line.endswith(':'):  # 处理模块名称的行（以冒号结尾）
+                            current_module = line[:-1].strip()  # 去掉冒号并获取模块名称
+                            # 初始化当前模块的字典
+                            self._predictions[current_module] = {}
+                        else:  # 处理模块中的具体数据行
+                            # 分割键和值
+                            key, value = line.split(':', 1)
+                            key = key.strip()
+                            value = value.strip()
+                            
+                            # 将值转换为适当的类型（这里假设都是整数，可根据实际情况调整）
+                            if value.isdigit() or (value.startswith('-') and value[1:].isdigit()):
+                                value = int(value)
+                            else:
+                                try:
+                                    value = float(value)  # 尝试转换为浮点数
+                                except ValueError:
+                                    pass  # 保持为字符串
+                            
+                            # 将键值对存储到当前模块的字典中
+                            self._predictions[current_module][key] = value
+
+            # 打印结果以验证
+            print(self._predictions)
+
+        except FileNotFoundError:
+            print(f"文件 {file_path} 不存在，请检查路径是否正确。")
+        except Exception as e:
+            print(f"读取文件时发生错误：{e}")
+
+    def _get_mlp_layer_execution_time(self) -> float:
+        return (
+            self._mlp_layer_up_proj_execution_time
+            + self._mlp_layer_down_proj_execution_time
+            + self._mlp_layer_act_execution_time
+            + self._tensor_parallel_communication_time
+            + self._mlp_norm_time
+        )
+    
+    # def _get_mlp_layer_up_proj_execution_time(self, batch: Batch) -> float:
+    #     return self._predictions["mlp_up_proj"][(batch._total_num_tokens_rounded,)]  # 获取 MLP 层向上投影的执行时间 
+    def _get_mlp_layer_up_proj_execution_time(self) -> float:
+        return self._predictions["mlp_up_proj"]["time_gpu_avg"]  # 获取 MLP 层向上投影的执行时间
+    # def _get_mlp_layer_down_proj_execution_time(self, batch: Batch) -> float:
+    #     return self._predictions["mlp_down_proj"][(batch._total_num_tokens_rounded,)]  # 获取 MLP 层向下投影的执行时间
+    def _get_mlp_layer_down_proj_execution_time(self) -> float:
+        return self._predictions["mlp_down_proj"]["time_gpu_avg"]  # 获取 MLP 层向下投影的执行时间
+
+    # def _get_mlp_layer_act_execution_time(self, batch: Batch) -> float:
+    #     return self._predictions["mlp_act"][(batch._total_num_tokens_rounded,)]  # 获取 MLP 层激活的执行时间
+    def _get_mlp_layer_act_execution_time(self) -> float:
+        return self._predictions["mlp_act"]["time_gpu_avg"]  # 获取 MLP 层激活的执行时间
+
+    # def _get_tensor_parallel_communication_time(self, batch: Batch) -> float:
+    #     return (
+    #         self._predictions["all_reduce"][(batch._total_num_tokens_rounded,)]  # 获取张量并行通信的全规约执行时间
+    #         + self._config.nccl_cpu_launch_overhead_ms  # 添加 NCCL CPU 启动的开销
+    #         + self._config.nccl_cpu_skew_overhead_per_device_ms  # 添加 NCCL CPU 偏斜的单设备开销
+    #         * self._replica_config.tensor_parallel_size**1.25  # 根据张量并行大小计算额外开销
+    #     )
+
+    # def _get_attention_layer_execution_time(self) -> float:
+    #     return (
+    #         self._attention_layer_pre_proj_execution_time
+    #         + self._attention_layer_post_proj_execution_time
+    #         + self._attention_rope_execution_time
+    #         + self._attention_kv_cache_save_execution_time
+    #         + self._attention_decode_execution_time
+    #         + self._attention_prefill_execution_time
+    #         + self._tensor_parallel_communication_time
+    #         + self._attn_norm_time
+    #     )
+
+    def _get_attention_layer_execution_time(self) -> float: # fth 删self._tensor_parallel_communication_time
+        return (
+            self._attention_layer_pre_proj_execution_time
+            + self._attention_layer_post_proj_execution_time
+            + self._attention_rope_execution_time
+            + self._attention_kv_cache_save_execution_time
+            + self._attention_decode_execution_time
+            + self._attention_prefill_execution_time
+            + self._attn_norm_time
+        )
+    
+    # def _get_attention_layer_pre_proj_execution_time(self, batch: Batch) -> float:
+        # return self._predictions["attn_pre_proj"][(batch._total_num_tokens_rounded,)]  # 获取注意力层前投影的执行时间
+    def _get_attention_layer_pre_proj_execution_time(self) -> float:
+        return self._predictions["attn_pre_proj"]["time_gpu_avg"]  # 获取注意力层前投影的执行时间
+
+    # def _get_attention_layer_post_proj_execution_time(self, batch: Batch) -> float:
+        # return self._predictions["attn_post_proj"][(batch._total_num_tokens_rounded,)]  # 获取注意力层后投影的执行时间
+    def _get_attention_layer_post_proj_execution_time(self) -> float:
+        return self._predictions["attn_post_proj"]["time_gpu_avg"]  # 获取注意力层后投影的执行时间
+
+    # def _get_attention_rope_execution_time(self, batch: Batch) -> float:
+    #     return self._predictions["attn_rope"][(batch._total_num_tokens_rounded,)]  # 获取注意力旋转位置编码的执行时间
+    def _get_attention_rope_execution_time(self) -> float:
+        return self._predictions["attn_rope"]["time_gpu_avg"]  # 获取注意力旋转位置编码的执行时间
+
+    # def _get_attention_kv_cache_save_execution_time(self, batch: Batch) -> float:
+    #     # 不要向上取整到 8 的倍数，因为我们要预测的是精确的 token 数
+    #     num_tokens = sum(batch.num_tokens)  # 计算请求内的总 token 数
+
+    #     return self._predictions["attn_kv_cache_save"][(num_tokens,)]  # 获取注意力键值缓存保存的执行时间
+
+    # def _get_attention_decode_execution_time(self, batch: Batch) -> float:
+    #     (
+    #         decode_batch_size,
+    #         decode_avg_kv_cache_size,
+    #     ) = self._get_batch_decode_attention_params(batch)  # 获取解码的批次注意力参数
+    #     if decode_batch_size == 0:  # 如果解码批次大小为零
+    #         return 0  # 返回零表示无需执行时间
+
+    #     return self._predictions["attn_decode"][
+    #         (decode_batch_size, decode_avg_kv_cache_size)
+    #     ] * (
+    #         1
+    #         + self._attention_decode_batching_overhead_fraction  # 添加 attention 解码分批的额外开销
+    #         * int(decode_batch_size > 1)  # 如果批次大于 1，则乘以额外开销
+    #     )
+
+    def _get_attention_decode_execution_time(self) -> float:
+
+        return self._predictions["attn_decode"]["time_gpu_avg"]
+
+    # def _get_attention_prefill_execution_time(self, batch: Batch) -> float:
+    #     prefill_params = self._get_batch_prefill_attention_params(batch)  # 获取预填充 attention 参数
+
+    #     if len(prefill_params) == 0:  # 如果没有预填充参数
+    #         return 0  # 返回零表示无需执行时间
+
+    #     kv_cache_sizes, prefill_chunk_sizes = zip(*prefill_params)  # 解包预填充参数
+
+    #     agg_kv_cache_size = sum(kv_cache_sizes)  # 计算总的键值缓存大小
+    #     agg_prefill_chunk_size = sum([x**2 for x in prefill_chunk_sizes]) ** 0.5  # 计算预填充块大小的平方和的平方根
+
+    #     return self._predictions["attn_prefill"][
+    #         (agg_kv_cache_size, round(agg_prefill_chunk_size) ** 2)
+    #     ] * (
+    #         1
+    #         + self._attention_prefill_batching_overhead_fraction  # 添加 attention 预填充分批的额外开销
+    #         * int(len(prefill_params) > 1)  # 如果预填充参数多于一个，则乘以额外开销
+    #     )
+
+    def _get_attention_prefill_execution_time(self) -> float:
+
+        return self._predictions["attn_prefill"]["time_gpu_avg"]
+    
+    # def _get_tensor_parallel_communication_time(self, batch: Batch) -> float:
+    #     return (
+    #         self._predictions["all_reduce"][(batch._total_num_tokens_rounded,)]  # 获取张量并行通信的全规约执行时间
+    #         + self._config.nccl_cpu_launch_overhead_ms  # 添加 NCCL CPU 启动的开销
+    #         + self._config.nccl_cpu_skew_overhead_per_device_ms  # 添加 NCCL CPU 偏斜的单设备开销
+    #         * self._replica_config.tensor_parallel_size**1.25  # 根据张量并行大小计算额外开销
+    #     )
 
     def workload_generate_aiob_inference(self):
         # print(f'?? fth workload_generate_aiob_inference')
